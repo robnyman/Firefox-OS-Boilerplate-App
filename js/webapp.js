@@ -160,7 +160,9 @@ if (saveBookmark) {
             name: "save-bookmark",
             data: {
                 type: "url",
-                url: "http://robertnyman.com"
+                url: "http://robertnyman.com",
+                name: "Robert's talk",
+                icon: "http://robertnyman.com/favicon.png"
              }
         });
     }
