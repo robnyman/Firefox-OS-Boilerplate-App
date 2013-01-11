@@ -1,0 +1,21 @@
+{
+    "version": "1",
+    "name": "FxOS app",
+    // Make sure this is relative to the hosting web site root
+    "launch_path": "/fxosapp/index.html",
+    "description": "Bare bones Firefox OS app",
+    // Make sure icon paths are relative to the hosting web site root
+    "icons": {
+        "16": "/fxosapp/images/logo16.png",
+        "32": "/fxosapp/images/logo32.png",
+        "48": "/fxosapp/images/logo48.png",
+        "64": "/fxosapp/images/logo64.png",
+        "128": "/fxosapp/images/logo128.png"
+    },
+    "developer": {
+        "name": "Robert Nyman",
+        "url": "http://robertnyman.com"
+    },
+    "installs_allowed_from": ["*"],
+    "default_locale": "en"
+}
