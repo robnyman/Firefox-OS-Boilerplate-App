@@ -13,8 +13,8 @@ To test/install this app, navigate to [Firefox OS Boilerplate App](http://robnym
 
 Alternatively, install it in the Firefox OS Simulator by providing either of these URLs:
 
-* [http://robnyman.github.com/Firefox-OS-Boilerplate-App//](http://robnyman.github.com/Firefox-OS-Boilerplate-App//)
-* [http://robnyman.github.com/Firefox-OS-Boilerplate-App//manifest.webapp](http://robnyman.github.com/Firefox-OS-Boilerplate-App//manifest.webapp)
+* [http://robnyman.github.com/Firefox-OS-Boilerplate-App/](http://robnyman.github.com/Firefox-OS-Boilerplate-App/)
+* [http://robnyman.github.com/Firefox-OS-Boilerplate-App/manifest.webapp](http://robnyman.github.com/Firefox-OS-Boilerplate-App/manifest.webapp)
 
 
 
