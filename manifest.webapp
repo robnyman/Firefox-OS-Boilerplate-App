@@ -1,14 +1,14 @@
 {
     "version": "1",
-    "name": "FxOS app",
-    "launch_path": "/fxosapp/index.html",
-    "description": "Bare bones Firefox OS app",
+    "name": "Firefox OS Boilerplate App",
+    "launch_path": "/Firefox-OS-Boilerplate-App/index.html",
+    "description": "Boilerplate Firefox OS app with examples use cases to get started",
     "icons": {
-        "16": "/fxosapp/images/logo16.png",
-        "32": "/fxosapp/images/logo32.png",
-        "48": "/fxosapp/images/logo48.png",
-        "64": "/fxosapp/images/logo64.png",
-        "128": "/fxosapp/images/logo128.png"
+        "16": "/Firefox-OS-Boilerplate-App/images/logo16.png",
+        "32": "/Firefox-OS-Boilerplate-App/images/logo32.png",
+        "48": "/Firefox-OS-Boilerplate-App/images/logo48.png",
+        "64": "/Firefox-OS-Boilerplate-App/images/logo64.png",
+        "128": "/Firefox-OS-Boilerplate-App/images/logo128.png"
     },
     "developer": {
         "name": "Robert Nyman",
