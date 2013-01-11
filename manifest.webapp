@@ -1,8 +1,7 @@
 {
     "version": "1",
     "name": "FxOS app",
-    // Make sure this is relative to the hosting web site root
-    "launch_path": "/fxosapp/index.html",
+    "launch_path": "/fxosapp/index.html", // Make sure this is relative to the hosting web site root
     "description": "Bare bones Firefox OS app",
     // Make sure icon paths are relative to the hosting web site root
     "icons": {
