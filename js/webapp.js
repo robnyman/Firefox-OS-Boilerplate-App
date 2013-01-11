@@ -64,6 +64,15 @@ if (pickAnything) {
     }
 }
 
+var record = document.querySelector("#record");
+if (record) { 
+    record.onclick = function () {
+        var activity = new MozActivity({
+            name: "record" // Possibly capture in future versions
+        });
+    }
+}
+
 var dial = document.querySelector("#dial");
 if (dial) { 
     dial.onclick = function () {
@@ -106,15 +115,6 @@ if (addContact) {
                     company: "Mozilla"
                 }
             }
-        });
-    }
-}
-
-var record = document.querySelector("#record");
-if (record) { 
-    record.onclick = function () {
-        var activity = new MozActivity({
-            name: "record" // Possibly capture in future versions
         });
     }
 }
