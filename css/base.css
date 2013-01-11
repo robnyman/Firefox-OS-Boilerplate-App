@@ -6,7 +6,7 @@ html, body {
 }
 
 html, body, button {
-    font: 10px "Open Sans", sans-serif;
+    font: 14px Helvetica, "Open Sans", sans-serif;
 }
 
 header {
@@ -36,7 +36,7 @@ header #install.show {
 
 header h1 {
     display: inline-block;
-    font: normal 2.2rem/4.9rem "Open Sans", sans-serif;
+    font: normal 1.8rem/4.6rem "Open Sans", sans-serif;
     height: 100%;
     margin: 0 0 0 2rem;
     padding: 0 0 0 0.1rem;
@@ -118,7 +118,7 @@ footer li {
     /* background: url("images/separator.png") no-repeat scroll left top; */
     float: left;
     border-right: 1px solid #445;
-    width: 33%;
+    width: 49%;
     height: 100%;
     list-style: none;
     margin: 0;
@@ -131,7 +131,7 @@ footer li button {
     border: none;
     height: 100%;
     color: #fff;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
