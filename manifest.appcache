@@ -1,0 +1,11 @@
+CACHE MANIFEST
+# Version 0.42
+
+css/base.css
+js/offline.js
+
+NETWORK:
+*
+
+FALLBACK:
+/ fallback.html

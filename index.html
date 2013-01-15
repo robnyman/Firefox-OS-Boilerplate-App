@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<!-- 
+    Exchange the line above for this to enable offline support
+    <html manifest="manifest.appcache">
+ -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -14,6 +18,9 @@
         <div id="install">
             <button>Install</button>
         </div>
+
+        <!-- Icon that will indicate whether you are online or offline -->
+        <div id="online-status" title="Online"></div>
     </header>
 
     <div id="main">
@@ -48,9 +55,10 @@
 
     <script type="text/javascript" src="js/base.js"></script>
     <script type="text/javascript" src="js/webapp.js"></script>
+    <script type="text/javascript" src="js/offline.js"></script>
 
     <!-- 
-    Loosely based on fxosstub: https://github.com/Jaxo/fxosstub
+        Loosely based on fxosstub: https://github.com/Jaxo/fxosstub
     -->
 
 </body>

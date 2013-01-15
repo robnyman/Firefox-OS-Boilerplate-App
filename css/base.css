@@ -37,6 +37,7 @@ header #install button {
     background: linear-gradient(top,#6a7b86 0%,#424f5a 100%);
     padding: 0.3rem;
     border: none;
+    border-radius: 5px;
     margin: 1.4rem 1rem 0;
 }
 
@@ -63,6 +64,21 @@ header.show-install h1 {
     text-overflow: ellipsis;
 }
 
+#online-status {
+    position: absolute;
+    left: 10px;
+    top: 2rem;
+    width: 10px;
+    height: 10px;
+    color: #fff;
+    background: #008000;
+    border-radius: 5px;
+}
+
+#online-status.offline {
+    background: #ff0000;
+}
+
 #main {
     padding: 2rem 1rem 6rem 1rem;
 }
@@ -83,6 +99,7 @@ header.show-install h1 {
     padding: 1rem;
     color: #fff;
     font-weight: bold;
+    border-radius: 5px;
     background: rgb(76,76,76);
     background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(76,76,76,1)), color-stop(12%,rgba(89,89,89,1)), color-stop(25%,rgba(102,102,102,1)), color-stop(39%,rgba(71,71,71,1)), color-stop(50%,rgba(44,44,44,1)), color-stop(51%,rgba(0,0,0,1)), color-stop(60%,rgba(17,17,17,1)), color-stop(76%,rgba(43,43,43,1)), color-stop(91%,rgba(28,28,28,1)), color-stop(100%,rgba(19,19,19,1)));
