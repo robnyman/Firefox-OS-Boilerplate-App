@@ -1,4 +1,3 @@
-alert("CCC");
 (function () {
     var appCache = window.applicationCache;
     if (appCache) {
