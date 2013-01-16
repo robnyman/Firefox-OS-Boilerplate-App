@@ -1,3 +1,4 @@
+alert("AAA");
 (function () {
     var appCache = window.applicationCache;
     if (appCache) {
