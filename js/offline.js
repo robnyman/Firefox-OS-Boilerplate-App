@@ -1,4 +1,4 @@
-alert("AAA");
+alert("BBB");
 (function () {
     var appCache = window.applicationCache;
     if (appCache) {
