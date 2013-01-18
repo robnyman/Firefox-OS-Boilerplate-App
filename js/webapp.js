@@ -147,13 +147,15 @@
 
     var shareImage = document.querySelector("#share-image"),
         imgToShare = document.querySelector("#image-to-share");
-    if (shareImage && imgToShare) { 
+    if (shareImage && imgToShare) {
         shareImage.onclick = function () {
+            //alert(window.URL.createObjectURL(imgToShare.src));
             var sharingImage = new MozActivity({
                 name: "share",
                 data: {
                     type: "image/png",
-                    url: imgToShare // Find parameter for sharing DOM object
+                    // blobs: window.URL.createObjectURL(imgToShare) // Find parameter for sharing DOM object
+                    filenames: imgToShare.src
                 }
             });
         }
@@ -207,7 +209,7 @@
              notification.createNotification(
                 "See this", 
                 "This is a notification"
-            );    
+            );
         };
     }
 
@@ -225,6 +227,9 @@
                     "portrait-secondary" 
             */
             var portraitLock = screen.mozLockOrientation("portrait");
+            if (portraitLock) {
+                alert("Orientation locked to portrait");
+            }
         };
     }
 
@@ -240,19 +245,6 @@
                     Turn off vibration
                      navigator.vibrate(0);
             */
-        };
-    }
-
-    // Check connection
-    var checkConnection = document.querySelector("#check-connection"),
-        connectionDisplay = document.querySelector("#connection-display");
-    if (checkConnection && connectionDisplay) {
-        checkConnection.onclick = function () {
-            var connection = window.navigator.mozConnection,
-                online = "Connected: " + (connection.bandwidth > 0),
-                metered = ", metered: " + connection.metered; 
-
-            connectionDisplay.innerHTML = online + metered;
         };
     }
 
@@ -274,6 +266,43 @@
 
               request.onerror = function (event) {
                 alert(event.target.error.name); 
+            };
+        }
+
+        // Check connection
+        var checkConnection = document.querySelector("#check-connection"),
+            connectionDisplay = document.querySelector("#connection-display");
+
+        if (checkConnection && connectionDisplay) {
+            checkConnection.onclick = function () {
+                var connection = window.navigator.mozConnection,
+                    online = "<strong>Connected:</strong> " + (connection.bandwidth),
+                    metered = "<strong>Metered:</strong> " + connection.metered; 
+
+                connectionDisplay.innerHTML = online + "<br>" + metered;
+                connectionDisplay.style.display = "block";
+            };
+        }
+
+        // Check battery
+        var checkBattery = document.querySelector("#check-battery"),
+            batteryDisplay = document.querySelector("#battery-display");
+        if (checkBattery && batteryDisplay) {
+            checkBattery.onclick = function () {
+                var battery = navigator.battery,
+                    batteryLevel = Math.round(battery.level * 100) + "%",
+                    charging = battery.charging,
+                    chargingTime = parseInt(battery.chargingTime / 60, 10),
+                    dischargingTime = parseInt(battery.dischargingTime / 60, 10),
+                    batteryInfo;
+
+                batteryInfo = "<strong>Battery level:</strong> " + batteryLevel + "<br>";
+                batteryInfo += "<strong>Battery charging:</strong> " + charging + "<br>";
+                batteryInfo += "<strong>Battery charging time:</strong> " + chargingTime + "<br>";
+                batteryInfo += "<strong>Battery discharging time:</strong> " + dischargingTime;
+
+                batteryDisplay.innerHTML = batteryInfo;
+                batteryDisplay.style.display = "block";
             };
         }
     }
