@@ -21,7 +21,6 @@
     var pickImage = document.querySelector("#pick-image");
     if (pickImage) { 
         pickImage.onclick = function () {
-             // alert(MozActivity);
              var pick = new MozActivity({
                  name: "pick",
                  data: {
@@ -46,7 +45,6 @@
     var pickAnything = document.querySelector("#pick-anything");
     if (pickAnything) { 
         pickAnything.onclick = function () {
-             // alert(MozActivity);
              var pickAny = new MozActivity({
                  name: "pick"
              });
@@ -138,7 +136,8 @@
             var sharing = new MozActivity({
                 name: "share",
                 data: {
-                    type: "url", // Possibly text/html in future versions
+                    //type: "url", // Possibly text/html in future versions,
+                    number: 1,
                     url: "http://robertnyman.com"
                 }
             });
@@ -149,13 +148,13 @@
         imgToShare = document.querySelector("#image-to-share");
     if (shareImage && imgToShare) {
         shareImage.onclick = function () {
-            //alert(window.URL.createObjectURL(imgToShare.src));
+            var blob = new Blob([imgToShare], {type: "text/png"});
             var sharingImage = new MozActivity({
                 name: "share",
                 data: {
-                    type: "image/png",
-                    // blobs: window.URL.createObjectURL(imgToShare) // Find parameter for sharing DOM object
-                    filenames: imgToShare.src
+                    //type: "image/png",
+                    number: 1,
+                    blobs: blob
                 }
             });
         }
