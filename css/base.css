@@ -58,7 +58,7 @@ header h1 {
 
 header.show-install h1 {
     display: inline-block;
-    width: 55%;
+    width: 35%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
