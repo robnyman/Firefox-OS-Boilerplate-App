@@ -6,6 +6,9 @@ It will give you a button to install it in Firefox OS - on a device, in the [Fir
 
 It is a showcase of [Web Activities](https://hacks.mozilla.org/2013/01/introducing-web-activities/), WebAPI usage, adding offline support and more in Firefox OS!
 
+To add your own icon, I recommend using the [Firefox OS app icons style guide](http://www.mozilla.org/en-US/styleguide/products/firefoxos/icons/).
+
+
 ## Preview
 
 To test/install this app, download the code and run it on a web server, or navigate to [Firefox OS Boilerplate App](http://robnyman.github.com/Firefox-OS-Boilerplate-App/) in Firefox on a device or in the Firefox OS Simulator.
