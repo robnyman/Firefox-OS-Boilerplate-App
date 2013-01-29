@@ -1,0 +1,9 @@
+{
+    "name": "Firefox OS Boilerplate App",
+    "package_path" : "http://localhost/Firefox-OS-Boilerplate-App/Firefox-OS-Boilerplate-App.zip",
+    "version": "1",
+    "developer": {
+        "name": "Robert Nyman",
+        "url": "http://robertnyman.com"
+    }
+}
