@@ -12,7 +12,7 @@ if (navigator.mozApps) {
                 To install a package instead, exchange the above line to this:
                 manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/package.manifest";
             */
-            install.parentNode.className = "show-install";
+            install.className = "show-install";
             install.onclick = function () {
                 var installApp = navigator.mozApps.install(manifestURL);
                 /*
