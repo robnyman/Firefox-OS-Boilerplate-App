@@ -15,23 +15,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/headers.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/toolbars.css">
     <title>Firefox OS Boilerplate App</title>
 </head>
 
 <body>
 
-    <header>
-        <h1>Firefox OS Boilerplate</h1> 
-        <div id="install">
-            <button>Install</button>
-        </div>
+    <section role="region">
+        <header>
+            <!-- Icon that will indicate whether you are online or offline - enabled if you are using offline/appcache (see above) -->
+            <div id="online-status" title="Online"></div>
+            <menu type="toolbar">
+                <button id="install"><span class="icon icon-add">add</span></button>
+            </menu>
+            <h1>
+                Firefox OS Boilerplate
+            </h1>
+        </header>
+    </section>
 
-        <!-- Icon that will indicate whether you are online or offline - enabled if you are using offline/appcache (see above) -->
-        <div id="online-status" title="Online"></div>
-    </header>
 
     <div id="main">
+
+        <p>Press the + button in the top rigth corner to install this app.</p>
 
         <h2>WebActivities</h2>
 
@@ -57,6 +66,8 @@
 
         <button id="compose-email">Compose mail</button>
 
+        <button id="save-bookmark">Save bookmark</button>
+
 
         <h2>WebAPIs</h2>
 
@@ -76,10 +87,11 @@
     </div>
 
     <footer>
-        <ul>
-            <li><button id="save-bookmark">Save bookmark</button></li>
-            <li><button id="reload" class="reload">Reload</button></li>
-        </ul>
+        <div role="toolbar">
+            <ul>
+                <li><button id="reload" class="update">Update</button></li>
+            </ul>
+        </div>
     </footer>
 
     <script type="text/javascript" src="js/base.js"></script>
