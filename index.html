@@ -15,72 +15,88 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/headers.css"/>
+    <link rel="stylesheet" type="text/css" href="css/buttons.css"/>
+    <link rel="stylesheet" type="text/css" href="css/toolbars.css"/>
     <link rel="stylesheet" type="text/css" href="css/base.css"/>
     <title>Firefox OS Boilerplate App</title>
 </head>
 
 <body>
 
+<section role="region" class="skin-organic">
     <header>
-        <h1>Firefox OS Boilerplate</h1> 
-        <div id="install">
+        <menu type="toolbar" id="install">
             <button>Install</button>
-        </div>
+        </menu>
+        <h1>Firefoxg OS Boilerplate</h1> 
 
         <!-- Icon that will indicate whether you are online or offline - enabled if you are using offline/appcache (see above) -->
         <div id="online-status" title="Online"></div>
     </header>
-
-    <div id="main">
-
+    
+    <header id="web-activities">
         <h2>WebActivities</h2>
+    </header>
 
-        <button id="pick-image">Pick image</button>
-        <div id="image-presenter"></div>
+    <ul class="compact">
+        <li><button id="pick-image">Pick image</button>
+            <div id="image-presenter"></div>
+        </li>
+        
+        <li><button id="pick-anything">Pick anything</button></li>
 
-        <button id="pick-anything">Pick anything</button>
+        <li><button id="record">Take picture</button></li>
 
-        <button id="record">Take picture</button>
+        <li><button id="dial">Dial number</button></li>
 
-        <button id="dial">Dial number</button>
+        <li><button id="send-sms">Send SMS</button></li>
 
-        <button id="send-sms">Send SMS</button>
+        <li><button id="add-contact">Add contact</button></li>
 
-        <button id="add-contact">Add contact</button>
+        <li><button id="share">Share URL</button></li>
 
-        <button id="share">Share URL</button>
+        <li><button id="share-image">Share Image</button>
+            <img id="image-to-share" src="images/logo64.png" alt="">
+        </li>
 
-        <button id="share-image">Share Image</button>
-        <img id="image-to-share" src="images/logo64.png" alt="">
+        <li><button id="view-url">View URL</button></li>
 
-        <button id="view-url">View URL</button>
-
-        <button id="compose-email">Compose mail</button>
-
-
+        <li><button id="compose-email">Compose mail</button></li>
+    </ul>
+    
+    <header>
         <h2>WebAPIs</h2>
+    </header>
+    
+    <ul class="compact last">
+        <li><button id="add-notification">Add notification</button></li>
 
-        <button id="add-notification">Add notification</button>
+        <li><button id="lock-orientation">Orientation lock</button></li>
 
-        <button id="lock-orientation">Orientation lock</button>
+        <li><button id="vibrate">Vibrate 2 sec</button></li>
 
-        <button id="vibrate">Vibrate 2 sec</button>
+        <li><button id="add-alarm">Add alarm</button></li>
 
-        <button id="add-alarm">Add alarm</button>
+        <li>
+            <button id="check-connection">Check connection</button>
+            <div id="connection-display"></div>
+        </li>
 
-        <button id="check-connection">Check connection</button>
-        <div id="connection-display"></div>
+        <li>
+            <button id="check-battery">Check battery</button>
+            <div id="battery-display"></div>
+        <li>
+    </ul>
 
-        <button id="check-battery">Check battery</button>
-        <div id="battery-display"></div>
-    </div>
-
-    <footer>
+    <div role="toolbar">
         <ul>
             <li><button id="save-bookmark">Save bookmark</button></li>
+        </ul>
+        <ul>
             <li><button id="reload" class="reload">Reload</button></li>
         </ul>
-    </footer>
+    </div>
 
     <script type="text/javascript" src="js/base.js"></script>
     <script type="text/javascript" src="js/webapp.js"></script>
@@ -89,6 +105,8 @@
     <!-- 
         Loosely based on fxosstub: https://github.com/Jaxo/fxosstub
     -->
+
+</section>
 
 </body>
 </html>
