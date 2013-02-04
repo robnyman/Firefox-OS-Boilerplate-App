@@ -1,12 +1,38 @@
-html, body {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    background: #f3f3f4;
+@font-face {
+    font-family: 'mozTT';
+    src: url('../fonts/moztt_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'mozTT';
+    src: url('../fonts/moztt_light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'mozTT';
+    src: url('../fonts/moztt_medium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
 }
 
-html, body, button {
-    font: 14px Helvetica, "Open Sans", sans-serif;
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font: normal 10px "mozTT", sans-serif;
+  background: #fff;
+}
+
+body {
+  position: relative;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 #install {
@@ -41,7 +67,7 @@ header.show-install h1 {
 }
 
 #main {
-    padding: 2rem 1rem 6rem 1rem;
+    padding: 1rem 1rem 6rem 1rem;
 }
 
 #main h2 {
