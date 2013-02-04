@@ -10,7 +10,7 @@ if (navigator.mozApps) {
                 manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/manifest.webapp";
             /*
                 To install a package instead, exchange the above line to this:
-                manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/package.manifest";
+                manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/package.webapp";
             */
             install.className = "show-install";
             install.onclick = function () {
@@ -18,6 +18,8 @@ if (navigator.mozApps) {
                 /*
                     To install a package instead, exchange the above line to this:
                     var installApp = navigator.mozApps.installPackage(manifestURL);
+
+                    Make sure the manifestURL variable above has been changed too
                 */
                 installApp.onsuccess = function(data) {
                     install.style.display = "none";
