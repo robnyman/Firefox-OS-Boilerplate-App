@@ -11,12 +11,15 @@ To add your own icon, I recommend using the [Firefox OS app icons style guide](h
 
 ## Preview
 
-To test/install this app, download the code and run it on a web server, or navigate to [Firefox OS Boilerplate App](http://robnyman.github.com/Firefox-OS-Boilerplate-App/) in Firefox on a device or in the Firefox OS Simulator.
+To test/install this app, download the code and run it on a web server, or navigate to [Firefox OS Boilerplate App](http://robnyman.github.com/Firefox-OS-Boilerplate-App/) in Firefox on a device or in the Firefox OS Simulator. 
 
 Alternatively, install it in the Firefox OS Simulator Dashboard by providing either of these URLs:
 
 * [http://robnyman.github.com/Firefox-OS-Boilerplate-App/](http://robnyman.github.com/Firefox-OS-Boilerplate-App/)
 * [http://robnyman.github.com/Firefox-OS-Boilerplate-App/manifest.webapp](http://robnyman.github.com/Firefox-OS-Boilerplate-App/manifest.webapp)
+
+**Note:** If you use the Add Directory option in the Simulator, make sure to change `"launch_path": "/Firefox-OS-Boilerplate-App/index.html"` to `"launch_path": "index.html"` since it runs it as a packaged app directly from the root folder of the Firefox OS Boilerplate App.
+
 
 ## installPackage - Packaged Apps
 
