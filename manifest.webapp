@@ -1,6 +1,7 @@
 {
     "version": "1",
     "name": "Firefox OS Boilerplate App",
+    "type" : "privileged",
     "launch_path": "/Firefox-OS-Boilerplate-App/index.html",
     "description": "Boilerplate Firefox OS app with example use cases to get started",
     "icons": {
@@ -15,5 +16,11 @@
         "url": "http://robertnyman.com"
     },
     "installs_allowed_from": ["*"],
-    "default_locale": "en"
+    "default_locale": "en",
+    "permissions": {
+        "device-storage:pictures": {
+            "access": "readonly"
+        },
+        "systemXHR":{}
+    }
 }
