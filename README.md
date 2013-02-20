@@ -25,7 +25,7 @@ Alternatively, install it in the Firefox OS Simulator Dashboard by providing eit
 **Note:** If you use the Add Directory option in the Simulator, make sure to change `"launch_path": "/Firefox-OS-Boilerplate-App/index.html"` to `"launch_path": "index.html"` and the icon paths accordingly since it runs it as a packaged app directly from the root folder of the Firefox OS Boilerplate App.
 
 
-## installPackage - Packaged Apps
+## Packaged Apps
 
 You can test packaged apps in version 2 and higher in the Firefox OS Simulator, by using the Add Directory button. If you want to access privileged APIs - such as deviceStorage, cross-domain XMLHttpRequest etc - you need to set type and permissions in the manifest file. E.g.
 
@@ -46,7 +46,7 @@ And:
 
 
 
-### Manual approach - your mileage may vary
+### installPackage: manual approach - your mileage may vary
 
 It also supports `installPackage` to install a ZIP version of your app with all files packaged. This also gives you access to a few extra APIs, due to a higher security clearance.
 The repository contains two sample things to make this possible:
