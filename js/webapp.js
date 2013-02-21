@@ -253,7 +253,7 @@
         addAlarm.onclick = function () {
             var alarmId1,
                 request = navigator.mozAlarms.add(
-                    new Date("May 15, 2012 16:20:00"), 
+                    new Date("May 15, 2013 16:20:00"), 
                     "honorTimezone", 
                     {
                         mydata: "my event"
