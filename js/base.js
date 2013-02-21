@@ -4,6 +4,10 @@ if (navigator.mozApps) {
     checkIfInstalled.onsuccess = function () {
         if (checkIfInstalled.result) {
             // Already installed
+            var installationInstructions = document.querySelector("#installation-instructions");
+            if (installationInstructions) {
+                installationInstructions.style.display = "none";
+            }
         }
         else {
             var install = document.querySelector("#install"),
