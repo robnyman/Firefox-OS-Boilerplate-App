@@ -38,7 +38,7 @@ You can test packaged apps in version 2 and higher in the Firefox OS Simulator, 
 And:
     
     "permissions": {
-        "device-storage:videos": {
+        "device-storage:pictures": {
             "access": "readcreate"
         },
         "systemXHR":{}
