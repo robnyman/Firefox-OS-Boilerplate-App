@@ -17,7 +17,14 @@
     "installs_allowed_from": ["*"],
     "default_locale": "en",
     "permissions": {
-        "desktop-notification": {},
-        "alarms" : {}
+        "desktop-notification": {
+            "description" : "To show notifications"
+        },
+        "alarms": {
+            "description" : "To schedule alarms"
+        },
+        "geolocation": {
+            "description" : "Marking out user location"
+        }
     }
 }

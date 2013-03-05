@@ -305,6 +305,22 @@
             };
         }
 
+        // Geolocation
+        var geolocation = document.querySelector("#geolocation"),
+            geolocationDisplay = document.querySelector("#geolocation-display");
+        if (geolocation && geolocationDisplay) {
+            geolocation.onclick = function () {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    geolocationDisplay.innerHTML = "<strong>Latitude:</strong> " + position.coords.latitude + ", <strong>Longitude:</strong> " + position.coords.longitude;
+                    geolocationDisplay.style.display = "block";
+                },
+                function (position) {
+                    geolocationDisplay.innerHTML = "Failed to get your current location";
+                    geolocationDisplay.style.display = "block";
+                });
+            };
+        }
+
         // Cross domain XHR
         var crossDomainXHR = document.querySelector("#cross-domain-xhr"),
             crossDomainXHRDisplay = document.querySelector("#cross-domain-xhr-display");
