@@ -1,379 +1,71 @@
 (function () {
-    /*
-        WebActivities:
 
-            configure
-            costcontrol/balance
-            costcontrol/data_usage
-            costcontrol/telephony
-            dial
-            new (type: "websms/sms", "webcontacts/contact") (add-contact, compose-mail?)
-            open
-            pick (type: "image/png" etc)
-            record (capture?)
-            save-bookmark
-            share
-            test
-            view (type: "url" etc. "text/html"?)
-    */
+    // deviceStorage, pictures
+    var deviceStoragePictures = document.querySelector("#device-storage-pictures"),
+        deviceStoragePicturesDisplay = document.querySelector("#device-storage-pictures-display"),
+        listAllImages = true,
+        counter = 0;
+    if (deviceStoragePictures && deviceStoragePicturesDisplay) {
+        deviceStoragePictures.onclick = function () {
+            var deviceStorage = navigator.getDeviceStorage("pictures"),
+                cursor = deviceStorage.enumerate(); 
 
-    // WebActivities
-    var pickImage = document.querySelector("#pick-image");
-    if (pickImage) { 
-        pickImage.onclick = function () {
-             var pick = new MozActivity({
-                 name: "pick",
-                 data: {
-                     type: ["image/png", "image/jpg", "image/jpeg"]
-                  }
-             });
-
-            pick.onsuccess = function () { 
-                var img = document.createElement("img");
-                img.src = window.URL.createObjectURL(this.result.blob);
-                var imagePresenter = document.querySelector("#image-presenter");
-                imagePresenter.appendChild(img);
-                imagePresenter.style.display = "block";
-            };
-
-            pick.onerror = function () { 
-                alert("Can't view the image!");
-            };
-        }
-    }
-
-    var pickAnything = document.querySelector("#pick-anything");
-    if (pickAnything) { 
-        pickAnything.onclick = function () {
-             var pickAny = new MozActivity({
-                 name: "pick"
-             });
-
-            pickAny.onsuccess = function () { 
-                var img = document.createElement("img");
-                if (this.result.blob.type.indexOf("image") != -1) {
-                    img.src = window.URL.createObjectURL(this.result.blob);
-                    document.querySelector("#image-presenter").appendChild(img);
+            deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4>";
+             
+              cursor.onsuccess = function() { 
+                if (!cursor.result)  {
+                    deviceStoragePicturesDisplay.innerHTML += "No more files";
                 }
-            };
+                
+                var file = cursor.result,
+                    filePresentation,
+                    wrapper = document.createElement("div"),
+                    strong,
+                    text,
+                    br,
+                    p,
+                    img;
 
-            pickAny.onerror = function () { 
-                console.log("An error occurred");
-            };
-        }
-    }
+                strong = document.createElement("strong");
+                text = document.createTextNode((++counter) + ". " + file.name + ": ");
+                text2 = document.createTextNode(parseInt(file.size / 1024, 10) + "kb");
+                br = document.createElement("br");
+                p = document.createElement("p");
+                img = document.createElement("img");
+                img.src = window.URL.createObjectURL(file);
 
-    var record = document.querySelector("#record");
-    if (record) { 
-        record.onclick = function () {
-            var rec = new MozActivity({
-                name: "record" // Possibly capture in future versions
-            });
+                strong.appendChild(text);
+                wrapper.appendChild(strong);
+                wrapper.appendChild(text2);
+                wrapper.appendChild(br);
+                p.appendChild(img);
+                wrapper.appendChild(p);
 
-            rec.onsuccess = function () { 
-                var img = document.createElement("img");
-                img.src = window.URL.createObjectURL(this.result.blob);
-                var imagePresenter = document.querySelector("#image-presenter");
-                imagePresenter.appendChild(img);
-                imagePresenter.style.display = "block";
-            };
+                deviceStoragePicturesDisplay.appendChild(wrapper);
 
-            rec.onerror = function () { 
-                alert("No taken picture returned");
-            };
-        }
-    }
-
-    var dial = document.querySelector("#dial");
-    if (dial) { 
-        dial.onclick = function () {
-            var call = new MozActivity({
-                name: "dial",
-                data: {
-                    number: "+46777888999"
-                }
-            });
-        }
-    }
-
-    var sendSMS = document.querySelector("#send-sms");
-    if (sendSMS) { 
-        sendSMS.onclick = function () {
-            var sms = new MozActivity({
-                name: "new", // Possible compose-sms in future versions
-                data: {
-                    type: "websms/sms",
-                    number: "+46777888999"
-                }
-            });
-        }
-    }
-
-    var addContact = document.querySelector("#add-contact");
-    if (addContact) { 
-        addContact.onclick = function () {
-            var newContact = new MozActivity({
-                name: "new", // Possibly add-contact in future versions
-                data: {
-                    type: "webcontacts/contact",
-                    params: { // Will possibly move to be direct properties under "data"
-                        giveName: "Robert",
-                        familyName: "Nyman",
-                        tel: "+44789",
-                        email: "robert@mozilla.com",
-                        address: "San Francisco",
-                        note: "This is a note",
-                        company: "Mozilla"
-                    }
-                }
-            });
-        }
-    }
-
-    var share = document.querySelector("#share");
-    if (share) { 
-        share.onclick = function () {
-            var sharing = new MozActivity({
-                name: "share",
-                data: {
-                    //type: "url", // Possibly text/html in future versions,
-                    number: 1,
-                    url: "http://robertnyman.com"
-                }
-            });
-        }
-    }
-
-    var shareImage = document.querySelector("#share-image"),
-        imgToShare = document.querySelector("#image-to-share");
-    if (shareImage && imgToShare) {
-        shareImage.onclick = function () {
-            var blob = new Blob([imgToShare], {type: "text/png"});
-            var sharingImage = new MozActivity({
-                name: "share",
-                data: {
-                    //type: "image/png",
-                    number: 1,
-                    blobs: blob
-                }
-            });
-        }
-    }
-
-    var viewURL = document.querySelector("#view-url");
-    if (viewURL) { 
-        viewURL.onclick = function () {
-            var openURL = new MozActivity({
-                name: "view",
-                data: {
-                    type: "url", // Possibly text/html in future versions
-                    url: "http://robertnyman.com"
-                }
-            });
-        }
-    }
-
-    var composeEmail = document.querySelector("#compose-email");
-    if (composeEmail) { 
-        composeEmail.onclick = function () {
-            var createEmail = new MozActivity({
-                name: "new", // Possibly compose-mail in future versions
-                data: {
-                    url: "mailto:example@example.org"
-                }
-            });
-        }
-    }
-
-    var saveBookmark = document.querySelector("#save-bookmark");
-    if (saveBookmark) { 
-        saveBookmark.onclick = function () {
-            var savingBookmark = new MozActivity({
-                name: "save-bookmark",
-                data: {
-                    type: "url",
-                    url: "http://robertnyman.com",
-                    name: "Robert's talk",
-                    icon: "http://robertnyman.com/favicon.png"
-                 }
-            });
-        }
-    }
-
-    // Notifications
-    var addNotification = document.querySelector("#add-notification");
-    if (addNotification) {
-        addNotification.onclick = function () {
-            var notification = navigator.mozNotification;
-             notification.createNotification(
-                "See this", 
-                "This is a notification"
-            );
-        };
-    }
-
-    // Lock orientation
-    var lockOrientation = document.querySelector("#lock-orientation");
-    if (lockOrientation) {
-        lockOrientation.onclick = function () {
-            /*
-                Possible values:
-                    "landscape", 
-                    "portrait"
-                    "landscape-primary"
-                    "landscape-secondary"
-                    "portrait-primary"
-                    "portrait-secondary" 
-            */
-            var portraitLock = screen.mozLockOrientation("portrait");
-            if (portraitLock) {
-                alert("Orientation locked to portrait");
-            }
-        };
-    }
-
-    // Vibration
-    var vibrate = document.querySelector("#vibrate");
-    if (vibrate) {
-        vibrate.onclick = function () {
-            var vibrating =  navigator.vibrate(2000);
-            /*
-                Possible values:
-                    On/off pattern:
-                     navigator.vibrate([200, 100, 200, 100]);
-                    Turn off vibration
-                     navigator.vibrate(0);
-            */
-        };
-    }
-
-    // Alarm API
-    var addAlarm = document.querySelector("#add-alarm");
-    if (addAlarm) {
-        addAlarm.onclick = function () {
-            var alarmId1,
-                request = navigator.mozAlarms.add(
-                    new Date("May 15, 2013 16:20:00"), 
-                    "honorTimezone", 
-                    {
-                        mydata: "my event"
-                    }
-                );
-             request.onsuccess = function (event) {
-                alarmId1 = event.target.result;
-             };
-
-              request.onerror = function (event) {
-                alert(event.target.error.name); 
-            };
-        }
-
-        // Check connection
-        var checkConnection = document.querySelector("#check-connection"),
-            connectionDisplay = document.querySelector("#connection-display");
-
-        if (checkConnection && connectionDisplay) {
-            checkConnection.onclick = function () {
-                var connection = window.navigator.mozConnection,
-                    online = "<strong>Connected:</strong> " + (connection.bandwidth),
-                    metered = "<strong>Metered:</strong> " + connection.metered; 
-
-                connectionDisplay.innerHTML = "<h4>Result from Check connection</h4>" + online + "<br>" + metered;
-                connectionDisplay.style.display = "block";
-            };
-        }
-
-        // Check battery
-        var checkBattery = document.querySelector("#check-battery"),
-            batteryDisplay = document.querySelector("#battery-display");
-        if (checkBattery && batteryDisplay) {
-            checkBattery.onclick = function () {
-                var battery = navigator.battery,
-                    batteryLevel = Math.round(battery.level * 100) + "%",
-                    charging = battery.charging,
-                    chargingTime = parseInt(battery.chargingTime / 60, 10),
-                    dischargingTime = parseInt(battery.dischargingTime / 60, 10),
-                    batteryInfo;
-
-                batteryInfo = "<h4>Result from Check battery</h4><strong>Battery level:</strong> " + batteryLevel + "<br>";
-                batteryInfo += "<strong>Battery charging:</strong> " + charging + "<br>";
-                batteryInfo += "<strong>Battery charging time:</strong> " + chargingTime + "<br>";
-                batteryInfo += "<strong>Battery discharging time:</strong> " + dischargingTime;
-
-                batteryDisplay.innerHTML = batteryInfo;
-                batteryDisplay.style.display = "block";
-            };
-        }
-
-        // Geolocation
-        var geolocation = document.querySelector("#geolocation"),
-            geolocationDisplay = document.querySelector("#geolocation-display");
-        if (geolocation && geolocationDisplay) {
-            geolocation.onclick = function () {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    geolocationDisplay.innerHTML = "<strong>Latitude:</strong> " + position.coords.latitude + ", <strong>Longitude:</strong> " + position.coords.longitude;
-                    geolocationDisplay.style.display = "block";
-                },
-                function (position) {
-                    geolocationDisplay.innerHTML = "Failed to get your current location";
-                    geolocationDisplay.style.display = "block";
-                });
-            };
-        }
-
-        // Cross domain XHR
-        var crossDomainXHR = document.querySelector("#cross-domain-xhr"),
-            crossDomainXHRDisplay = document.querySelector("#cross-domain-xhr-display");
-        if (crossDomainXHR && crossDomainXHRDisplay) {
-            crossDomainXHR.onclick = function () {
-                var xhr = new XMLHttpRequest({mozSystem: true});
-                xhr.open("GET", "http://robnyman.github.com/Firefox-OS-Boilerplate-App/README.md", true);
-                xhr.onreadystatechange = function () {
-                    if (xhr.status === 200 && xhr.readyState === 4) {
-                        crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4>" + xhr.response;
-                        crossDomainXHRDisplay.style.display = "block";
-                    }
-                }
-
-                xhr.onerror = function () {
-                    crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4><p>Cross-domain XHR failed</p>";
-                    crossDomainXHRDisplay.style.display = "block";
-                };
-                xhr.send();
-            };
-        }
-
-        // deviceStorage, pictures
-        var deviceStoragePictures = document.querySelector("#device-storage-pictures"),
-            deviceStoragePicturesDisplay = document.querySelector("#device-storage-pictures-display");
-        if (deviceStoragePictures && deviceStoragePicturesDisplay) {
-            deviceStoragePictures.onclick = function () {
-                var deviceStorage = navigator.getDeviceStorage("pictures"),
-                    cursor = deviceStorage.enumerate(); 
-
-                deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4>";
-                 
-                  cursor.onsuccess = function() { 
-                    if (!cursor.result)  {
-                        deviceStoragePicturesDisplay.innerHTML = "No files";
-                    }
-                    
-                    var file = cursor.result,
-                        filePresentation; 
-
-                    filePresentation = "<strong>" + file.name + ":</strong> " + parseInt(file.size / 1024, 10) + "kb<br>";
+                /*
+                    innerHTML approach - crashes as well:
+                    filePresentation = "<strong>" + (++counter) + ". " + file.name + ":</strong> " + parseInt(file.size / 1024, 10) + "kb<br>";
                     filePresentation += "<p><img src='" + window.URL.createObjectURL(file) + "' alt=''></p>";
                     deviceStoragePicturesDisplay.innerHTML += filePresentation;
+                */
 
-                    deviceStoragePicturesDisplay.style.display = "block";
-                 };
+                /*
+                    Counter example. Replace the above with this, and it never stops counting:
 
-                  cursor.onerror = function () {
-                    console.log("Error");
-                    deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p>";
-                    deviceStoragePicturesDisplay.style.display = "block";
-                };
+                    filePresentation = ++counter;
+                    deviceStoragePicturesDisplay.innerHTML = filePresentation;                    
+                */
+                cursor.continue();
+
+                deviceStoragePicturesDisplay.style.display = "block";
+             };
+
+              cursor.onerror = function () {
+                console.log("Error");
+                deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p>";
+                deviceStoragePicturesDisplay.style.display = "block";
             };
-        }
+        };
     }
 })(); 
