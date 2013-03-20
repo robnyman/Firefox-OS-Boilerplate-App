@@ -205,11 +205,11 @@
     var addNotification = document.querySelector("#add-notification");
     if (addNotification) {
         addNotification.onclick = function () {
-            var notification = navigator.mozNotification;
-             notification.createNotification(
+            var notification = navigator.mozNotification.createNotification(
                 "See this", 
                 "This is a notification"
             );
+             notification.show();
         };
     }
 
