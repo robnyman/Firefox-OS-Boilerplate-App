@@ -261,11 +261,12 @@
                     }
                 );
              request.onsuccess = function (event) {
+                console.log("AlarmAPI: " + event.target.result);
                 alarmId1 = event.target.result;
              };
 
               request.onerror = function (event) {
-                alert(event.target.error.name); 
+                console.log("AlarmAPI: " + event.target.error.name);
             };
         }
 
