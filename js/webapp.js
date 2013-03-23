@@ -152,9 +152,9 @@
             var sharingImage = new MozActivity({
                 name: "share",
                 data: {
-                    //type: "image/png",
+                    type: "image/*",
                     number: 1,
-                    blobs: blob
+                    blobs: [blob]
                 }
             });
         }
