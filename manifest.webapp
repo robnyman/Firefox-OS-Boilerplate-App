@@ -20,9 +20,6 @@
         "desktop-notification": {
             "description" : "To show notifications"
         },
-        "alarms": {
-            "description" : "To schedule alarms"
-        },
         "geolocation": {
             "description" : "Marking out user location"
         }
