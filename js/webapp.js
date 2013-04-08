@@ -21,12 +21,12 @@
     var pickImage = document.querySelector("#pick-image");
     if (pickImage) { 
         pickImage.onclick = function () {
-             var pick = new MozActivity({
-                 name: "pick",
-                 data: {
-                     type: ["image/png", "image/jpg", "image/jpeg"]
-                  }
-             });
+            var pick = new MozActivity({
+                name: "pick",
+                data: {
+                    type: ["image/png", "image/jpg", "image/jpeg"]
+                 }
+            });
 
             pick.onsuccess = function () { 
                 var img = document.createElement("img");
@@ -248,134 +248,111 @@
         };
     }
 
-    // Alarm API
-    var addAlarm = document.querySelector("#add-alarm");
-    if (addAlarm) {
-        addAlarm.onclick = function () {
-            var alarmId1,
-                request = navigator.mozAlarms.add(
-                    new Date("May 15, 2013 16:20:00"), 
-                    "honorTimezone", 
-                    {
-                        mydata: "my event"
-                    }
-                );
-             request.onsuccess = function (event) {
-                console.log("AlarmAPI: " + event.target.result);
-                alarmId1 = event.target.result;
+    // Check connection
+    var checkConnection = document.querySelector("#check-connection"),
+        connectionDisplay = document.querySelector("#connection-display");
+
+    if (checkConnection && connectionDisplay) {
+        checkConnection.onclick = function () {
+            var connection = window.navigator.mozConnection,
+                online = "<strong>Connected:</strong> " + (connection.bandwidth),
+                metered = "<strong>Metered:</strong> " + connection.metered; 
+
+            connectionDisplay.innerHTML = "<h4>Result from Check connection</h4>" + online + "<br>" + metered;
+            connectionDisplay.style.display = "block";
+        };
+    }
+
+    // Check battery
+    var checkBattery = document.querySelector("#check-battery"),
+        batteryDisplay = document.querySelector("#battery-display");
+    if (checkBattery && batteryDisplay) {
+        checkBattery.onclick = function () {
+            var battery = navigator.battery,
+                batteryLevel = Math.round(battery.level * 100) + "%",
+                charging = battery.charging,
+                chargingTime = parseInt(battery.chargingTime / 60, 10),
+                dischargingTime = parseInt(battery.dischargingTime / 60, 10),
+                batteryInfo;
+
+            batteryInfo = "<h4>Result from Check battery</h4><strong>Battery level:</strong> " + batteryLevel + "<br>";
+            batteryInfo += "<strong>Battery charging:</strong> " + charging + "<br>";
+            batteryInfo += "<strong>Battery charging time:</strong> " + chargingTime + "<br>";
+            batteryInfo += "<strong>Battery discharging time:</strong> " + dischargingTime;
+
+            batteryDisplay.innerHTML = batteryInfo;
+            batteryDisplay.style.display = "block";
+        };
+    }
+
+    // Geolocation
+    var geolocation = document.querySelector("#geolocation"),
+        geolocationDisplay = document.querySelector("#geolocation-display");
+    if (geolocation && geolocationDisplay) {
+        geolocation.onclick = function () {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                geolocationDisplay.innerHTML = "<strong>Latitude:</strong> " + position.coords.latitude + ", <strong>Longitude:</strong> " + position.coords.longitude;
+                geolocationDisplay.style.display = "block";
+            },
+            function (position) {
+                geolocationDisplay.innerHTML = "Failed to get your current location";
+                geolocationDisplay.style.display = "block";
+            });
+        };
+    }
+
+    // Cross domain XHR
+    var crossDomainXHR = document.querySelector("#cross-domain-xhr"),
+        crossDomainXHRDisplay = document.querySelector("#cross-domain-xhr-display");
+    if (crossDomainXHR && crossDomainXHRDisplay) {
+        crossDomainXHR.onclick = function () {
+            var xhr = new XMLHttpRequest({mozSystem: true});
+            xhr.open("GET", "http://robnyman.github.com/Firefox-OS-Boilerplate-App/README.md", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.status === 200 && xhr.readyState === 4) {
+                    crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4>" + xhr.response;
+                    crossDomainXHRDisplay.style.display = "block";
+                }
+            }
+
+            xhr.onerror = function () {
+                crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4><p>Cross-domain XHR failed</p>";
+                crossDomainXHRDisplay.style.display = "block";
+            };
+            xhr.send();
+        };
+    }
+
+    // deviceStorage, pictures
+    var deviceStoragePictures = document.querySelector("#device-storage-pictures"),
+        deviceStoragePicturesDisplay = document.querySelector("#device-storage-pictures-display");
+    if (deviceStoragePictures && deviceStoragePicturesDisplay) {
+        deviceStoragePictures.onclick = function () {
+            var deviceStorage = navigator.getDeviceStorage("pictures"),
+                cursor = deviceStorage.enumerate(); 
+
+            deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4>";
+             
+              cursor.onsuccess = function() { 
+                if (!cursor.result)  {
+                    deviceStoragePicturesDisplay.innerHTML = "No files";
+                }
+                
+                var file = cursor.result,
+                    filePresentation; 
+
+                filePresentation = "<strong>" + file.name + ":</strong> " + parseInt(file.size / 1024, 10) + "kb<br>";
+                filePresentation += "<p><img src='" + window.URL.createObjectURL(file) + "' alt=''></p>";
+                deviceStoragePicturesDisplay.innerHTML += filePresentation;
+
+                deviceStoragePicturesDisplay.style.display = "block";
              };
 
-              request.onerror = function (event) {
-                console.log("AlarmAPI: " + event.target.error.name);
+              cursor.onerror = function () {
+                console.log("Error");
+                deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p>";
+                deviceStoragePicturesDisplay.style.display = "block";
             };
-        }
-
-        // Check connection
-        var checkConnection = document.querySelector("#check-connection"),
-            connectionDisplay = document.querySelector("#connection-display");
-
-        if (checkConnection && connectionDisplay) {
-            checkConnection.onclick = function () {
-                var connection = window.navigator.mozConnection,
-                    online = "<strong>Connected:</strong> " + (connection.bandwidth),
-                    metered = "<strong>Metered:</strong> " + connection.metered; 
-
-                connectionDisplay.innerHTML = "<h4>Result from Check connection</h4>" + online + "<br>" + metered;
-                connectionDisplay.style.display = "block";
-            };
-        }
-
-        // Check battery
-        var checkBattery = document.querySelector("#check-battery"),
-            batteryDisplay = document.querySelector("#battery-display");
-        if (checkBattery && batteryDisplay) {
-            checkBattery.onclick = function () {
-                var battery = navigator.battery,
-                    batteryLevel = Math.round(battery.level * 100) + "%",
-                    charging = battery.charging,
-                    chargingTime = parseInt(battery.chargingTime / 60, 10),
-                    dischargingTime = parseInt(battery.dischargingTime / 60, 10),
-                    batteryInfo;
-
-                batteryInfo = "<h4>Result from Check battery</h4><strong>Battery level:</strong> " + batteryLevel + "<br>";
-                batteryInfo += "<strong>Battery charging:</strong> " + charging + "<br>";
-                batteryInfo += "<strong>Battery charging time:</strong> " + chargingTime + "<br>";
-                batteryInfo += "<strong>Battery discharging time:</strong> " + dischargingTime;
-
-                batteryDisplay.innerHTML = batteryInfo;
-                batteryDisplay.style.display = "block";
-            };
-        }
-
-        // Geolocation
-        var geolocation = document.querySelector("#geolocation"),
-            geolocationDisplay = document.querySelector("#geolocation-display");
-        if (geolocation && geolocationDisplay) {
-            geolocation.onclick = function () {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    geolocationDisplay.innerHTML = "<strong>Latitude:</strong> " + position.coords.latitude + ", <strong>Longitude:</strong> " + position.coords.longitude;
-                    geolocationDisplay.style.display = "block";
-                },
-                function (position) {
-                    geolocationDisplay.innerHTML = "Failed to get your current location";
-                    geolocationDisplay.style.display = "block";
-                });
-            };
-        }
-
-        // Cross domain XHR
-        var crossDomainXHR = document.querySelector("#cross-domain-xhr"),
-            crossDomainXHRDisplay = document.querySelector("#cross-domain-xhr-display");
-        if (crossDomainXHR && crossDomainXHRDisplay) {
-            crossDomainXHR.onclick = function () {
-                var xhr = new XMLHttpRequest({mozSystem: true});
-                xhr.open("GET", "http://robnyman.github.com/Firefox-OS-Boilerplate-App/README.md", true);
-                xhr.onreadystatechange = function () {
-                    if (xhr.status === 200 && xhr.readyState === 4) {
-                        crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4>" + xhr.response;
-                        crossDomainXHRDisplay.style.display = "block";
-                    }
-                }
-
-                xhr.onerror = function () {
-                    crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4><p>Cross-domain XHR failed</p>";
-                    crossDomainXHRDisplay.style.display = "block";
-                };
-                xhr.send();
-            };
-        }
-
-        // deviceStorage, pictures
-        var deviceStoragePictures = document.querySelector("#device-storage-pictures"),
-            deviceStoragePicturesDisplay = document.querySelector("#device-storage-pictures-display");
-        if (deviceStoragePictures && deviceStoragePicturesDisplay) {
-            deviceStoragePictures.onclick = function () {
-                var deviceStorage = navigator.getDeviceStorage("pictures"),
-                    cursor = deviceStorage.enumerate(); 
-
-                deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4>";
-                 
-                  cursor.onsuccess = function() { 
-                    if (!cursor.result)  {
-                        deviceStoragePicturesDisplay.innerHTML = "No files";
-                    }
-                    
-                    var file = cursor.result,
-                        filePresentation; 
-
-                    filePresentation = "<strong>" + file.name + ":</strong> " + parseInt(file.size / 1024, 10) + "kb<br>";
-                    filePresentation += "<p><img src='" + window.URL.createObjectURL(file) + "' alt=''></p>";
-                    deviceStoragePicturesDisplay.innerHTML += filePresentation;
-
-                    deviceStoragePicturesDisplay.style.display = "block";
-                 };
-
-                  cursor.onerror = function () {
-                    console.log("Error");
-                    deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p>";
-                    deviceStoragePicturesDisplay.style.display = "block";
-                };
-            };
-        }
+        };
     }
 })(); 
