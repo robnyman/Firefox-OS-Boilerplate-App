@@ -27,7 +27,7 @@ Alternatively, install it in the Firefox OS Simulator Dashboard by providing eit
 
 ## Packaged Apps
 
-You can test packaged apps in version 2 and higher in the Firefox OS Simulator, by using the Add Directory button. If you want to access privileged APIs - such as deviceStorage, cross-domain XMLHttpRequest etc - you need to set type and permissions in the manifest file. E.g.
+You can test packaged apps in version 2 and higher of the Firefox OS Simulator, by using the Add Directory button. If you want to access privileged APIs - such as deviceStorage, cross-domain XMLHttpRequest etc - you need to set type and permissions in the manifest file. E.g.
 
     {
         "version": "1",
@@ -45,21 +45,4 @@ And:
     }
 
 
-
-### installPackage: manual approach - your mileage may vary
-
-It also supports `installPackage` to install a ZIP version of your app with all files packaged. This also gives you access to a few extra APIs, due to a higher security clearance.
-The repository contains two sample things to make this possible:
-
-* A mini manifest - the package.manifest file
-- A ZIP version of the app
-
-
-To enable this, please go to the js/base.js file and change two lines, as described in the comments.
-Basically, these are the steps needed for packaged apps:
-
-- Alter the mini manifest (package.manifest) and make sure the "package_path" is absolute
-- ZIP all app content (not containing folder), including regular manifest
-- Developer name and info HAS to match between mini manifest and the regular one
-- Have an installPackage call in JavaScript pointing to the mini manifest
-- (*Not available anymore:* Turn on Developer Mode in the Firefox OS Simulator (Settings > Device Information > More Information > Developer > Developer mode))
+All options to test packaged apps are outlined in the [How to install packaged apps in Firefox OS – options and tools](https://hacks.mozilla.org/2013/03/how-to-install-packaged-apps-in-firefox-os-options-and-tools/) article
