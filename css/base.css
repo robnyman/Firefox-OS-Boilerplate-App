@@ -92,7 +92,11 @@ header.show-install h1 {
 
 #image-presenter,
 #connection-display,
-#battery-display {
+#geolocation-display,
+#battery-display,
+
+#ambient-light-display
+ {
     display: none;
     margin-bottom: 10px;
 }

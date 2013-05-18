@@ -301,6 +301,20 @@
         };
     }
 
+    // Ambient light
+    var ambientLight = document.querySelector("#ambient-light"),
+        ambientLightDisplay = document.querySelector("#ambient-light-display");
+    if (ambientLight && ambientLightDisplay) {
+        ambientLight.onclick = function () {
+            ambientLightDisplay.style.display = "block";
+            window.addEventListener("devicelight", function (event) {
+                // Read out the lux value
+                var lux = "<strong>Ambient light: </strong>" + event.value + " lux";
+                ambientLightDisplay.innerHTML = lux;
+            });
+        };
+    }
+
     // Cross domain XHR
     var crossDomainXHR = document.querySelector("#cross-domain-xhr"),
         crossDomainXHRDisplay = document.querySelector("#cross-domain-xhr-display");
