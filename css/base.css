@@ -94,9 +94,8 @@ header.show-install h1 {
 #connection-display,
 #geolocation-display,
 #battery-display,
-
-#ambient-light-display
- {
+#ambient-light-display,
+#proximity-display {
     display: none;
     margin-bottom: 10px;
 }

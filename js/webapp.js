@@ -307,11 +307,27 @@
     if (ambientLight && ambientLightDisplay) {
         ambientLight.onclick = function () {
             ambientLightDisplay.style.display = "block";
-            window.addEventListener("devicelight", function (event) {
+            window.ondevicelight = function (event) {
                 // Read out the lux value
                 var lux = "<strong>Ambient light: </strong>" + event.value + " lux";
                 ambientLightDisplay.innerHTML = lux;
-            });
+            };
+        };
+    }
+
+    // Proximity
+    var proximity = document.querySelector("#proximity"),
+        proximityDisplay = document.querySelector("#proximity-display");
+    if (proximity && proximityDisplay) {
+        proximity.onclick = function () {
+            proximityDisplay.style.display = "block";
+            window.ondeviceproximity = function (event) {
+                // Check proximity, in centimeters
+                var prox = "<strong>Proximity: </strong>" + event.value + " cm";
+                prox += "<strong>Min: </strong>" + event.min + " cm";
+                prox += "<strong>Max: </strong>" + event.max + " cm";
+                proximityDisplay.innerHTML = prox;
+            };
         };
     }
 
