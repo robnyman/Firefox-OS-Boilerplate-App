@@ -323,9 +323,9 @@
             proximityDisplay.style.display = "block";
             window.ondeviceproximity = function (event) {
                 // Check proximity, in centimeters
-                var prox = "<strong>Proximity: </strong>" + event.value + " cm";
-                prox += "<strong>Min: </strong>" + event.min + " cm";
-                prox += "<strong>Max: </strong>" + event.max + " cm";
+                var prox = "<strong>Proximity: </strong>" + event.value + " cm<br>";
+                prox += "<strong>Min value supported: </strong>" + event.min + " cm<br>";
+                prox += "<strong>Max value supported: </strong>" + event.max + " cm";
                 proximityDisplay.innerHTML = prox;
             };
         };
@@ -335,11 +335,11 @@
     var deviceOrientation = document.querySelector('#device-orientation'),
         deviceOrientationDisplay = document.querySelector('#device-orientation-display');
 
-    if ( deviceOrientation && deviceOrientationDisplay ) {
+    if (deviceOrientation && deviceOrientationDisplay) {
         deviceOrientation.onclick = function() {
-            deviceOrientationDisplay.style.display = (deviceProximityDisplay.style.display == 'block') ? 'none' : 'block';
-            window.addEventListener("deviceorientation", function(event) {
-                var orientedTo = (event.beta > 45&& event.beta < 135) ? "top" : (event.beta < -45 && event.beta > -135) ? "bottom" : (event.gamma > 45) ? "right" : (event.gamma < -45) ? "left" : "flat";
+            deviceOrientationDisplay.style.display = "block";
+            window.ondeviceorientation = function (event) {
+                var orientedTo = (event.beta > 45 && event.beta < 135) ? "top" : (event.beta < -45 && event.beta > -135) ? "bottom" : (event.gamma > 45) ? "right" : (event.gamma < -45) ? "left" : "flat";
                 var orientation = "<strong>Absolute: </strong>" + event.absolute + "<br>"
                                 + "<strong>Alpha: </strong>" + event.alpha + "<br>"
                                 + "<strong>Beta: </strong>" + event.beta + "<br>"
@@ -347,7 +347,7 @@
                                 + "<strong>Device orientation: </strong>" + orientedTo;
 
                 deviceOrientationDisplay.innerHTML = orientation 
-            })
+            };
         }
     }
 
