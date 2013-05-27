@@ -117,8 +117,8 @@
                 data: {
                     type: "webcontacts/contact",
                     params: { // Will possibly move to be direct properties under "data"
-                        giveName: "Robert",
-                        familyName: "Nyman",
+                        givenName: "Robert",
+                        lastName: "Nyman",
                         tel: "+44789",
                         email: "robert@mozilla.com",
                         address: "San Francisco",
