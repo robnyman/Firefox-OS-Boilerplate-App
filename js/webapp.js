@@ -147,16 +147,8 @@
     var shareImage = document.querySelector("#share-image"),
         imgToShare = document.querySelector("#image-to-share");
     if (shareImage && imgToShare) {
-        imgToShare.onload = function () {
-            imgToShare.dataset.loaded = true;
-        };
-
-        imgToShare.onerror = function () {
-            imgToShare.dataset.loaded = false;
-        };
-
         shareImage.onclick = function () {
-            if(imgToShare.dataset.loaded === "true") {
+            if(imgToShare.naturalWidth > 0) {
                 // Create dummy canvas
                 var blobCanvas = document.createElement("canvas");
                 blobCanvas.width = imgToShare.width;
