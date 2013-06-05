@@ -347,6 +347,20 @@
         };
     }
 
+    // User proximity
+    var userProximity = document.querySelector("#user-proximity"),
+        userProximityDisplay = document.querySelector("#user-proximity-display");
+    if (userProximity && userProximityDisplay) {
+        userProximity.onclick = function () {
+            userProximityDisplay.style.display = "block";
+            window.onuserproximity = function (event) {
+                // Check user proximity
+                var userProx = "<strong>User proximity - near: </strong>" + event.near + "<br>";
+                userProximityDisplay.innerHTML = userProx;
+            };
+        };
+    }
+
     // Device Orientation
     var deviceOrientation = document.querySelector('#device-orientation'),
         deviceOrientationDisplay = document.querySelector('#device-orientation-display');

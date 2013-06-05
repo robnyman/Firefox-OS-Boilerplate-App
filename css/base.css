@@ -96,6 +96,7 @@ header.show-install h1 {
 #battery-display,
 #ambient-light-display,
 #proximity-display,
+#user-proximity-display,
 #device-orientation-display {
     display: none;
     margin-bottom: 10px;
