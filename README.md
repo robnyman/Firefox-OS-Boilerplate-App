@@ -13,7 +13,7 @@ It is a showcase of:
 To add your own icon, I recommend using the [Firefox OS app icons style guide](http://www.mozilla.org/en-US/styleguide/products/firefoxos/icons/).
 
 
-## Preview
+## Preview 
 
 To test/install this app, download the code and run it on a web server, or navigate to [Firefox OS Boilerplate App](http://robnyman.github.com/Firefox-OS-Boilerplate-App/) in Firefox on a device or in the Firefox OS Simulator. 
 
@@ -22,10 +22,9 @@ Alternatively, install it in the Firefox OS Simulator Dashboard by providing eit
 * [http://robnyman.github.com/Firefox-OS-Boilerplate-App/](http://robnyman.github.com/Firefox-OS-Boilerplate-App/)
 * [http://robnyman.github.com/Firefox-OS-Boilerplate-App/manifest.webapp](http://robnyman.github.com/Firefox-OS-Boilerplate-App/manifest.webapp)
 
-**Note:** If you use the Add Directory option in the Simulator, make sure to change `"launch_path": "/Firefox-OS-Boilerplate-App/index.html"` to `"launch_path": "index.html"` and the icon paths accordingly since it runs it as a packaged app directly from the root folder of the Firefox OS Boilerplate App.
+## For Packaged Apps 
 
-
-## Packaged Apps
+**Note:** If you use the Add Directory option in the Simulator, or if you are trying to package (zip) for a future upload in the marketplace, make sure to change `"launch_path": "/Firefox-OS-Boilerplate-App/index.html"` to `"launch_path": "index.html"` and the icon paths accordingly since it runs it as a packaged app directly from the root folder of the Firefox OS Boilerplate App.
 
 You can test packaged apps in version 2 and higher of the Firefox OS Simulator, by using the Add Directory button. If you want to access privileged APIs - such as deviceStorage, cross-domain XMLHttpRequest etc - you need to set type and permissions in the manifest file. E.g.
 
