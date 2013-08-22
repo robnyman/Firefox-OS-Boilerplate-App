@@ -1,14 +1,14 @@
 {
     "version": "1",
     "name": "Firefox OS Boilerplate App",
-    "launch_path": "/Firefox-OS-Boilerplate-App/index.html",
+    "launch_path": "/index.html",
     "description": "Boilerplate Firefox OS app with example use cases to get started",
     "icons": {
-        "16": "/Firefox-OS-Boilerplate-App/images/logo16.png",
-        "32": "/Firefox-OS-Boilerplate-App/images/logo32.png",
-        "48": "/Firefox-OS-Boilerplate-App/images/logo48.png",
-        "64": "/Firefox-OS-Boilerplate-App/images/logo64.png",
-        "128": "/Firefox-OS-Boilerplate-App/images/logo128.png"
+        "16": "/images/logo16.png",
+        "32": "/images/logo32.png",
+        "48": "/images/logo48.png",
+        "64": "/images/logo64.png",
+        "128": "/images/logo128.png"
     },
     "developer": {
         "name": "Robert Nyman",
