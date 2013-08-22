@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[firefox-os-boilerplate.en-usproperties]
+file_filter = locales/<lang>.properties
+source_file = locales/en-US.properties
+source_lang = en
+
