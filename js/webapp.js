@@ -25,7 +25,7 @@
                 name: "pick",
                 data: {
                     type: ["image/png", "image/jpg", "image/jpeg"]
- }
+                 }
             });
 
             pick.onsuccess = function () { 
@@ -212,7 +212,7 @@
                     url: "http://robertnyman.com",
                     name: "Robert's talk",
                     icon: "http://robertnyman.com/favicon.png"
- }
+                 }
             });
         }
     }
@@ -225,7 +225,7 @@
                 "See this",
                 "This is a notification"
             );
- notification.show();
+             notification.show();
         };
     }
 
@@ -256,10 +256,8 @@
             var vibrating = navigator.vibrate(2000);
             /*
                 Possible values:
-                    On/off pattern:
- navigator.vibrate([200, 100, 200, 100]);
-                    Turn off vibration
- navigator.vibrate(0);
+                    On/off pattern: navigator.vibrate([200, 100, 200, 100]);
+                    Turn off vibration: navigator.vibrate(0);
             */
         };
     }
@@ -413,7 +411,7 @@
 
             deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4>";
  
-  cursor.onsuccess = function() { 
+              cursor.onsuccess = function() { 
                 if (!cursor.result)  {
                     deviceStoragePicturesDisplay.innerHTML = "No files";
                 }
@@ -426,9 +424,9 @@
                 deviceStoragePicturesDisplay.innerHTML += filePresentation;
 
                 deviceStoragePicturesDisplay.style.display = "block";
- };
+             };
 
-  cursor.onerror = function () {
+              cursor.onerror = function () {
                 console.log("Error");
                 deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p>";
                 deviceStoragePicturesDisplay.style.display = "block";
