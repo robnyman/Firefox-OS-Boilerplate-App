@@ -230,7 +230,7 @@ section[role="region"] > header:first-child > a {
   overflow: hidden;
 }
 
-section[role="region"] > header:first-child > button::-moz-focus-inner { 
+section[role="region"] > header:first-child > button::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
