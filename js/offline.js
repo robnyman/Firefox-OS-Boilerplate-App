@@ -14,7 +14,7 @@
                 displayStatus.className = "offline";
                 displayStatus.title = "Offline";
             };
-            
+
         }
     }
 })();

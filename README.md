@@ -13,7 +13,7 @@ It is a showcase of:
 To add your own icon, I recommend using the [Firefox OS app icons style guide](http://www.mozilla.org/en-US/styleguide/products/firefoxos/icons/).
 
 
-## Preview 
+## Preview
 
 To test/install this app, the recommended way is to download it or clone/fork this repository and run it in the [Firefox OS Simulator](https://addons.mozilla.org/en-US/firefox/addon/firefox-os-simulator/) by clicking Add Directory.
 
@@ -21,7 +21,7 @@ Alternatively, you can test-run it from GitHub by installing it in the Firefox O
 
 * [http://robnyman.github.io/Firefox-OS-Boilerplate-App/](http://robnyman.github.io/Firefox-OS-Boilerplate-App/)
 
-## For Packaged Apps 
+## For Packaged Apps
 
 You can test packaged apps in version 2 and higher of the Firefox OS Simulator, by using the Add Directory button. If you want to access privileged APIs - such as deviceStorage, cross-domain XMLHttpRequest etc - you need to set type and permissions in the manifest file. E.g.
 
@@ -30,9 +30,9 @@ You can test packaged apps in version 2 and higher of the Firefox OS Simulator, 
         "name": "Firefox OS Boilerplate App",
         "type" : "privileged"
         …
-    
+
 And:
-    
+
     "permissions": {
         "device-storage:pictures": {
             "access": "readcreate"
