@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<!-- 
+<!--
     Exchange the line above for this to enable offline support
     <html manifest="manifest.appcache">
 
     Please make your homework before doing this:
         http://www.alistapart.com/articles/application-cache-is-a-douchebag/
         http://appcachefacts.info
-    
-    This might be necessary to set up on your server, to make sure 
+
+    This might be necessary to set up on your server, to make sure
     files are updated when the appcache file itself is:
         https://github.com/robnyman/Firefox-OS-Boilerplate-App/blob/gh-pages/.htaccess
  -->
@@ -91,8 +91,8 @@
         <button id="geolocation" data-l10n-id="geolocation">Geolocation</button>
         <div id="geolocation-display" data-l10n-id="golocation-values">Geolocation coords should show up here</div>
 
-        <button id="ambient-light" data-l10n-id="ambient-light">Ambient light</button>
-        <div id="ambient-light-display" data-l10n-id="ambient-light-values">Ambient light should show up here</div>        
+        <button id="ambient-light">Ambient light</button>
+        <div id="ambient-light-display">Ambient light should show up here</div>
 
         <button id="proximity" data-l10n-id="proximity">Proximity</button>
         <div id="proximity-display" data-l10n-id="proximity-values">Proximity should show up here</div>
@@ -104,6 +104,9 @@
         <div id="device-orientation-display" data-l10n-id="device-orientation-values">Device orientation should show up here</div>
 
         <h3 data-l10n-id="priv-apis">Privileged APIs</h3>
+
+        <button id="log-visibility">App visibility</button>
+        <div id="log-visibility-display"></div>
 
         <button id="cross-domain-xhr" data-l10n-id="cross-domain-xhr">Cross-domain XHR</button>
         <div id="cross-domain-xhr-display"></div>
@@ -124,7 +127,7 @@
     <script type="text/javascript" src="js/webapp.js"></script>
     <script type="text/javascript" src="js/offline.js"></script>
 
-    <!-- 
+    <!--
         Loosely based on fxosstub: https://github.com/Jaxo/fxosstub
     -->
 
