@@ -36,3 +36,23 @@ if (reload) {
         location.reload(true);
     };
 }
+
+// Log visibility of the app
+var logVisibility = document.querySelector("#log-visibility"),
+    logVisibilityDisplay = document.querySelector("#log-visibility-display");
+if (logVisibility && logVisibilityDisplay) {
+    logVisibility.onclick = function () {
+        logVisibilityDisplay.style.display = "block";
+        logVisibilityDisplay.innerHTML = "I have focus!<br>"
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                console.log("Firefox OS Boilerplate App is hidden");
+                logVisibilityDisplay.innerHTML += "Now I'm in the background<br>";
+            }
+            else {
+                console.log("Firefox OS Boilerplate App has focus");
+                logVisibilityDisplay.innerHTML += "I have focus!<br>";
+            }
+        });
+    };
+}
