@@ -1,8 +1,17 @@
 [main]
 host = https://www.transifex.com
 
-[firefox-os-boilerplate.en-usproperties]
-file_filter = locales/<lang>.properties
-source_file = locales/en-US.properties
+[firefox-os-boilerplate.app_properties]
+file_filter = locales/<lang>/app.properties
+source_file = locales/en-US/app.properties
 source_lang = en
+type = MOZILLAPROPERTIES
+minimum_perc = 50
+
+[firefox-os-boilerplate.manifest_properties]
+file_filter = locales/<lang>/manifest.properties
+source_file = locales/en-US/manifest.properties
+source_lang = en
+type = MOZILLAPROPERTIES
+minimum_perc = 50
 
