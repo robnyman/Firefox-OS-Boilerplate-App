@@ -1,7 +1,7 @@
 // Install app
 if (navigator.mozApps) {
     var checkIfInstalled = navigator.mozApps.getSelf();
-    checkIfInstalled.onsuccess = function () {
+    checkIfInstalled.addEventListener("success", function() {
         if (checkIfInstalled.result) {
             // Already installed
             var installationInstructions = document.querySelector("#installation-instructions");
@@ -13,17 +13,17 @@ if (navigator.mozApps) {
             var install = document.querySelector("#install"),
                 manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/manifest.webapp";
             install.className = "show-install";
-            install.onclick = function () {
+            install.addEventListener("click", function() {
                 var installApp = navigator.mozApps.install(manifestURL);
-                installApp.onsuccess = function(data) {
+                installApp.addEventListener("success", function(data) {
                     install.style.display = "none";
-                };
-                installApp.onerror = function() {
+                });
+                installApp.addEventListener("error", function() {
                     alert("Install failed\n\n:" + installApp.error.name);
-                };
-            };
+                });
+            });
         }
-    };
+    });
 }
 else {
     console.log("Open Web Apps not supported");
@@ -32,7 +32,7 @@ else {
 // Reload content
 var reload = document.querySelector("#reload");
 if (reload) {
-    reload.onclick = function () {
+    reload.addEventListener("click", function() {
         location.reload(true);
-    };
+    });
 }

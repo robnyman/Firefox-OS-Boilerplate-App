@@ -20,85 +20,85 @@
     // WebActivities
     var pickImage = document.querySelector("#pick-image");
     if (pickImage) {
-        pickImage.onclick = function () {
+        pickImage.addEventListener("click", function() {
             var pick = new MozActivity({
                 name: "pick",
                 data: {
                     type: ["image/png", "image/jpg", "image/jpeg"]
- }
+                 }
             });
 
-            pick.onsuccess = function () { 
+            pick.addEventListener("success", function() {
                 var img = document.createElement("img");
                 img.src = window.URL.createObjectURL(this.result.blob);
                 var imagePresenter = document.querySelector("#image-presenter");
                 imagePresenter.appendChild(img);
                 imagePresenter.style.display = "block";
-            };
+            });
 
-            pick.onerror = function () { 
+            pick.addEventListener("error", function() {
                 alert("Can't view the image!");
-            };
-        }
+            });
+        });
     }
 
     var pickAnything = document.querySelector("#pick-anything");
     if (pickAnything) {
-        pickAnything.onclick = function () {
+        pickAnything.addEventListener("click", function() {
              var pickAny = new MozActivity({
                  name: "pick"
              });
 
-            pickAny.onsuccess = function () { 
+            pickAny.addEventListener("success", function() {
                 var img = document.createElement("img");
                 if (this.result.blob.type.indexOf("image") != -1) {
                     img.src = window.URL.createObjectURL(this.result.blob);
                     document.querySelector("#image-presenter").appendChild(img);
                 }
-            };
+            });
 
-            pickAny.onerror = function () { 
+            pickAny.addEventListener("error", function() {
                 console.log("An error occurred");
-            };
-        }
+            });
+        });
     }
 
     var record = document.querySelector("#record");
     if (record) {
-        record.onclick = function () {
+        record.addEventListener("click", function() {
             var rec = new MozActivity({
                 name: "record" // Possibly capture in future versions
             });
 
-            rec.onsuccess = function () { 
+            rec.addEventListener("success", function() {
                 var img = document.createElement("img");
                 img.src = window.URL.createObjectURL(this.result.blob);
                 var imagePresenter = document.querySelector("#image-presenter");
                 imagePresenter.appendChild(img);
                 imagePresenter.style.display = "block";
-            };
+            });
 
-            rec.onerror = function () { 
+            rec.addEventListener("error", function() {
                 alert("No taken picture returned");
-            };
-        }
+            });
+        });
     }
 
     var dial = document.querySelector("#dial");
     if (dial) {
-        dial.onclick = function () {
+        dial.addEventListener("click", function() {
             var call = new MozActivity({
                 name: "dial",
                 data: {
                     number: "+46777888999"
                 }
             });
-        }
+        });
     }
 
     var sendSMS = document.querySelector("#send-sms");
     if (sendSMS) {
-        sendSMS.onclick = function () {
+        sendSMS.addEventListener("click", function() {
             var sms = new MozActivity({
                 name: "new", // Possible compose-sms in future versions
                 data: {
@@ -106,12 +106,12 @@
                     number: "+46777888999"
                 }
             });
-        }
+        });
     }
 
     var addContact = document.querySelector("#add-contact");
     if (addContact) {
-        addContact.onclick = function () {
+        addContact.addEventListener("click", function() {
             var newContact = new MozActivity({
                 name: "new", // Possibly add-contact in future versions
                 data: {
@@ -127,12 +127,12 @@
                     }
                 }
             });
-        }
+        });
     }
 
     var share = document.querySelector("#share");
     if (share) {
-        share.onclick = function () {
+        share.addEventListener("click", function() {
             var sharing = new MozActivity({
                 name: "share",
                 data: {
@@ -141,13 +141,13 @@
                     url: "http://robertnyman.com"
                 }
             });
-        }
+        });
     }
 
     var shareImage = document.querySelector("#share-image"),
         imgToShare = document.querySelector("#image-to-share");
     if (shareImage && imgToShare) {
-        shareImage.onclick = function () {
+        shareImage.addEventListener("click", function() {
             if(imgToShare.naturalWidth > 0) {
                 // Create dummy canvas
                 var blobCanvas = document.createElement("canvas");
@@ -173,12 +173,12 @@
             else {
                 alert("Image failed to load, can't be shared");
             }
-        }
+        });
     }
 
     var viewURL = document.querySelector("#view-url");
     if (viewURL) {
-        viewURL.onclick = function () {
+        viewURL.addEventListener("click", function() {
             var openURL = new MozActivity({
                 name: "view",
                 data: {
@@ -186,12 +186,12 @@
                     url: "http://robertnyman.com"
                 }
             });
-        }
+        });
     }
 
     var composeEmail = document.querySelector("#compose-email");
     if (composeEmail) {
-        composeEmail.onclick = function () {
+        composeEmail.addEventListener("click", function() {
             var createEmail = new MozActivity({
                 name: "new", // Possibly compose-mail in future versions
                 data: {
@@ -199,12 +199,12 @@
                     url: "mailto:example@example.org"
                 }
             });
-        }
+        });
     }
 
     var saveBookmark = document.querySelector("#save-bookmark");
     if (saveBookmark) {
-        saveBookmark.onclick = function () {
+        saveBookmark.addEventListener("click", function() {
             var savingBookmark = new MozActivity({
                 name: "save-bookmark",
                 data: {
@@ -212,27 +212,27 @@
                     url: "http://robertnyman.com",
                     name: "Robert's talk",
                     icon: "http://robertnyman.com/favicon.png"
- }
+                 }
             });
-        }
+        });
     }
 
     // Notifications
     var addNotification = document.querySelector("#add-notification");
     if (addNotification) {
-        addNotification.onclick = function () {
+        addNotification.addEventListener("click", function() {
             var notification = navigator.mozNotification.createNotification(
                 "See this",
                 "This is a notification"
             );
- notification.show();
-        };
+             notification.show();
+        });
     }
 
     // Lock orientation
     var lockOrientation = document.querySelector("#lock-orientation");
     if (lockOrientation) {
-        lockOrientation.onclick = function () {
+        lockOrientation.addEventListener("click", function() {
             /*
                 Possible values:
                     "landscape",
@@ -246,44 +246,41 @@
             if (portraitLock) {
                 alert("Orientation locked to portrait");
             }
-        };
+        });
     }
 
     // Vibration
     var vibrate = document.querySelector("#vibrate");
     if (vibrate) {
-        vibrate.onclick = function () {
+        vibrate.addEventListener("click", function() {
             var vibrating = navigator.vibrate(2000);
             /*
                 Possible values:
-                    On/off pattern:
- navigator.vibrate([200, 100, 200, 100]);
-                    Turn off vibration
- navigator.vibrate(0);
+                    On/off pattern: navigator.vibrate([200, 100, 200, 100]);
+                    Turn off vibration: navigator.vibrate(0);
             */
-        };
+        });
     }
 
     // Check connection
     var checkConnection = document.querySelector("#check-connection"),
         connectionDisplay = document.querySelector("#connection-display");
-
     if (checkConnection && connectionDisplay) {
-        checkConnection.onclick = function () {
+        checkConnection.addEventListener("click", function() {
             var connection = window.navigator.mozConnection,
                 online = "<strong>Connected:</strong> " + (connection.bandwidth),
                 metered = "<strong>Metered:</strong> " + connection.metered; 
 
             connectionDisplay.innerHTML = "<h4>Result from Check connection</h4>" + online + "<br>" + metered;
             connectionDisplay.style.display = "block";
-        };
+        });
     }
 
     // Check battery
     var checkBattery = document.querySelector("#check-battery"),
         batteryDisplay = document.querySelector("#battery-display");
     if (checkBattery && batteryDisplay) {
-        checkBattery.onclick = function () {
+        checkBattery.addEventListener("click", function() {
             var battery = navigator.battery,
                 batteryLevel = Math.round(battery.level * 100) + "%",
                 charging = battery.charging,
@@ -298,14 +295,14 @@
 
             batteryDisplay.innerHTML = batteryInfo;
             batteryDisplay.style.display = "block";
-        };
+        });
     }
 
     // Geolocation
     var geolocation = document.querySelector("#geolocation"),
         geolocationDisplay = document.querySelector("#geolocation-display");
     if (geolocation && geolocationDisplay) {
-        geolocation.onclick = function () {
+        geolocation.addEventListener("click", function() {
             navigator.geolocation.getCurrentPosition(function (position) {
                 geolocationDisplay.innerHTML = "<strong>Latitude:</strong> " + position.coords.latitude + ", <strong>Longitude:</strong> " + position.coords.longitude;
                 geolocationDisplay.style.display = "block";
@@ -314,61 +311,60 @@
                 geolocationDisplay.innerHTML = "Failed to get your current location";
                 geolocationDisplay.style.display = "block";
             });
-        };
+        });
     }
 
     // Ambient light
     var ambientLight = document.querySelector("#ambient-light"),
         ambientLightDisplay = document.querySelector("#ambient-light-display");
     if (ambientLight && ambientLightDisplay) {
-        ambientLight.onclick = function () {
+        ambientLight.addEventListener("click", function() {
             ambientLightDisplay.style.display = "block";
-            window.ondevicelight = function (event) {
+            window.addEventListener("devicelight", function(event) {
                 // Read out the lux value
                 var lux = "<strong>Ambient light: </strong>" + event.value + " lux";
                 ambientLightDisplay.innerHTML = lux;
-            };
-        };
+            });
+        });
     }
 
     // Proximity
     var proximity = document.querySelector("#proximity"),
         proximityDisplay = document.querySelector("#proximity-display");
     if (proximity && proximityDisplay) {
-        proximity.onclick = function () {
+        proximity.addEventListener("click", function() {
             proximityDisplay.style.display = "block";
-            window.ondeviceproximity = function (event) {
+            window.addEventListener("deviceproximity", function(event) {
                 // Check proximity, in centimeters
                 var prox = "<strong>Proximity: </strong>" + event.value + " cm<br>";
                 prox += "<strong>Min value supported: </strong>" + event.min + " cm<br>";
                 prox += "<strong>Max value supported: </strong>" + event.max + " cm";
                 proximityDisplay.innerHTML = prox;
-            };
-        };
+            });
+        });
     }
 
     // User proximity
     var userProximity = document.querySelector("#user-proximity"),
         userProximityDisplay = document.querySelector("#user-proximity-display");
     if (userProximity && userProximityDisplay) {
-        userProximity.onclick = function () {
+        userProximity.addEventListener("click", function() {
             userProximityDisplay.style.display = "block";
-            window.onuserproximity = function (event) {
+            window.addEventListener("userproximity", function(event) {
                 // Check user proximity
                 var userProx = "<strong>User proximity - near: </strong>" + event.near + "<br>";
                 userProximityDisplay.innerHTML = userProx;
-            };
-        };
+            });
+        });
     }
 
     // Device Orientation
-    var deviceOrientation = document.querySelector('#device-orientation'),
-        deviceOrientationDisplay = document.querySelector('#device-orientation-display');
-
+    var deviceOrientation = document.querySelector("#device-orientation"),
+        deviceOrientationDisplay = document.querySelector("#device-orientation-display");
     if (deviceOrientation && deviceOrientationDisplay) {
-        deviceOrientation.onclick = function() {
+        deviceOrientation.addEventListener("click", function() {
             deviceOrientationDisplay.style.display = "block";
-            window.ondeviceorientation = function (event) {
+            window.addEventListener("deviceorientation", function(event) {
                 var orientedTo = (event.beta > 45 && event.beta < 135) ? "top" : (event.beta < -45 && event.beta > -135) ? "bottom" : (event.gamma > 45) ? "right" : (event.gamma < -45) ? "left" : "flat";
                 var orientation = "<strong>Absolute: </strong>" + event.absolute + "<br>"
                                 + "<strong>Alpha: </strong>" + event.alpha + "<br>"
@@ -377,8 +373,8 @@
                                 + "<strong>Device orientation: </strong>" + orientedTo;
 
                 deviceOrientationDisplay.innerHTML = orientation
-            };
-        }
+            });
+        });
     }
 
     // Log visibility of the app
@@ -405,35 +401,35 @@
     var crossDomainXHR = document.querySelector("#cross-domain-xhr"),
         crossDomainXHRDisplay = document.querySelector("#cross-domain-xhr-display");
     if (crossDomainXHR && crossDomainXHRDisplay) {
-        crossDomainXHR.onclick = function () {
+        crossDomainXHR.addEventListener("click", function() {
             var xhr = new XMLHttpRequest({mozSystem: true});
             xhr.open("GET", "http://robnyman.github.com/Firefox-OS-Boilerplate-App/README.md", true);
-            xhr.onreadystatechange = function () {
+            xhr.addEventListener("readystatechange", function() {
                 if (xhr.status === 200 && xhr.readyState === 4) {
                     crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4>" + xhr.response;
                     crossDomainXHRDisplay.style.display = "block";
                 }
-            }
+            });
 
-            xhr.onerror = function () {
+            xhr.addEventListener("error", function() {
                 crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4><p>Cross-domain XHR failed</p>";
                 crossDomainXHRDisplay.style.display = "block";
-            };
+            });
             xhr.send();
-        };
+        });
     }
 
     // deviceStorage, pictures
     var deviceStoragePictures = document.querySelector("#device-storage-pictures"),
         deviceStoragePicturesDisplay = document.querySelector("#device-storage-pictures-display");
     if (deviceStoragePictures && deviceStoragePicturesDisplay) {
-        deviceStoragePictures.onclick = function () {
+        deviceStoragePictures.addEventListener("click", function() {
             var deviceStorage = navigator.getDeviceStorage("pictures"),
                 cursor = deviceStorage.enumerate(); 
 
             deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4>";
- 
-  cursor.onsuccess = function() { 
+
+              cursor.addEventListener("success", function() {
                 if (!cursor.result)  {
                     deviceStoragePicturesDisplay.innerHTML = "No files";
                 }
@@ -446,13 +442,13 @@
                 deviceStoragePicturesDisplay.innerHTML += filePresentation;
 
                 deviceStoragePicturesDisplay.style.display = "block";
- };
+             });
 
-  cursor.onerror = function () {
+            cursor.addEventListener("error", function() {
                 console.log("Error");
                 deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p>";
                 deviceStoragePicturesDisplay.style.display = "block";
-            };
-        };
+            });
+        });
     }
 })();
