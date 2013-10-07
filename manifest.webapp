@@ -23,5 +23,10 @@
         "geolocation": {
             "description" : "Marking out user location"
         }
+    },
+    "locales": {
+        "en": {
+            "description": "Boilerplate Firefox OS app with example use cases to get started"
+        }
     }
 }
