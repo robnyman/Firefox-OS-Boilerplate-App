@@ -20,6 +20,9 @@
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
     <link rel="stylesheet" type="text/css" href="css/toolbars.css">
     <title>Firefox OS Boilerplate App</title>
+        <!-- Localization -->
+    <link rel="resource" type="application/l10n" href="locales/locales.ini" />
+    <script type="application/javascript" src="js/l10n.js"></script>
 </head>
 
 <body>
@@ -31,7 +34,7 @@
             <menu type="toolbar">
                 <button id="install"><span class="icon icon-add">add</span></button>
             </menu>
-            <h1>
+            <h1 data-l10n-id="app-heading">
                 Firefox OS Boilerplate App
             </h1>
         </header>
@@ -42,81 +45,80 @@
 
         <p id="installation-instructions">Press the + button in the top right corner to install this app.</p>
 
-        <h2>WebActivities</h2>
+        <h2 data-l10n-id="web-activities">WebActivities</h2>
 
-        <button id="pick-image">Pick image</button>
+        <button id="pick-image" data-l10n-id="pick-image">Pick image</button>
         <div id="image-presenter"></div>
 
-        <button id="pick-anything">Pick anything</button>
+        <button id="pick-anything" data-l10n-id="pick-anything">Pick anything</button>
 
-        <button id="record">Take picture</button>
+        <button id="record" data-l10n-id="take-picture">Take picture</button>
 
-        <button id="dial">Dial number</button>
+        <button id="dial" data-l10n-id="dial-number">Dial number</button>
 
-        <button id="send-sms">Send SMS</button>
+        <button id="send-sms" data-l10n-id="dial-sms">Send SMS</button>
 
-        <button id="add-contact">Add contact</button>
+        <button id="add-contact" data-l10n-id="add-contact">Add contact</button>
 
-        <button id="share">Share URL</button>
+        <button id="share" data-l10n-id="share-url">Share URL</button>
 
-        <button id="share-image">Share Image</button>
+        <button id="share-image" data-l10n-id="share-image">Share Image</button>
         <img id="image-to-share" src="images/logo64.png" alt="">
 
-        <button id="view-url">View URL</button>
+        <button id="view-url" data-l10n-id="view-url">View URL</button>
 
-        <button id="compose-email">Compose mail</button>
+        <button id="compose-email" data-l10n-id="compose-email">Compose mail</button>
 
-        <button id="save-bookmark">Save bookmark</button>
+        <button id="save-bookmark" data-l10n-id="save-bookmark">Save bookmark</button>
 
 
-        <h2>WebAPIs</h2>
+        <h2 data-l10n-id="web-apis">WebAPIs</h2>
 
-        <button id="add-notification">Add notification</button>
+        <button id="add-notification" data-l10n-id="add-notification">Add notification</button>
 
-        <button id="lock-orientation">Orientation lock</button>
+        <button id="lock-orientation" data-l10n-id="orientation-lock">Orientation lock</button>
 
-        <button id="vibrate">Vibrate 2 sec</button>
+        <button id="vibrate" data-l10n-id="vibrate">Vibrate 2 sec</button>
 
-        <button id="add-alarm">Add alarm</button>
+        <button id="add-alarm" data-l10n-id="add-alarm">Add alarm</button>
 
-        <button id="check-connection">Check connection</button>
-        <div id="connection-display">Connection values should show up here</div>
+        <button id="check-connection" data-l10n-id="check-connection">Check connection</button>
+        <div id="connection-display" data-l10n-id="connection-values">Connection values should show up here</div>
 
-        <button id="check-battery">Check battery</button>
-        <div id="battery-display">Battery values should show up here</div>
+        <button id="check-battery" data-l10n-id="check-battery">Check battery</button>
+        <div id="battery-display" data-l10n-id="battery-values">Battery values should show up here</div>
 
-        <button id="geolocation">Geolocation</button>
-        <div id="geolocation-display">Geolocation coords should show up here</div>
+        <button id="geolocation" data-l10n-id="geolocation">Geolocation</button>
+        <div id="geolocation-display" data-l10n-id="golocation-values">Geolocation coords should show up here</div>
 
         <button id="ambient-light">Ambient light</button>
         <div id="ambient-light-display">Ambient light should show up here</div>
 
-        <button id="proximity">Proximity</button>
-        <div id="proximity-display">Proximity should show up here</div>
+        <button id="proximity" data-l10n-id="proximity">Proximity</button>
+        <div id="proximity-display" data-l10n-id="proximity-values">Proximity should show up here</div>
 
-        <button id="user-proximity">User proximity</button>
-        <div id="user-proximity-display">User proximity should show up here</div>
+        <button id="user-proximity" data-l10n-id="user-proximity">User proximity</button>
+        <div id="user-proximity-display" data-l10n-id="user-proximity-values">User proximity should show up here</div>
 
-        <button id="device-orientation">Device orientation</button>
-        <div id="device-orientation-display">Device orientation should show up here</div>
+        <button id="device-orientation" data-l10n-id="device-orientation">Device orientation</button>
+        <div id="device-orientation-display" data-l10n-id="device-orientation-values">Device orientation should show up here</div>
 
-        <button id="log-visibility">App visibility</button>
+        <h3 data-l10n-id="priv-apis">Privileged APIs</h3>
+
+        <button id="log-visibility" data-l10n-id="log-visibility">App visibility</button>
         <div id="log-visibility-display"></div>
-        
 
-        <h3>Privileged APIs</h3>
-
-        <button id="cross-domain-xhr">Cross-domain XHR</button>
+        <button id="cross-domain-xhr" data-l10n-id="cross-domain-xhr">Cross-domain XHR</button>
         <div id="cross-domain-xhr-display"></div>
 
-        <button id="device-storage-pictures">deviceStorage - pictures</button>
+        <button id="device-storage-pictures" data-l10n-id="device-storage-pictures">deviceStorage - pictures</button>
         <div id="device-storage-pictures-display"></div>
     </div>
 
     <footer>
         <div role="toolbar">
             <ul>
-                <li><button id="reload" class="update">Update</button></li>
+                <li><button id="reload" class="update" data-l10n-id="update-button">Update</button></li>
             </ul>
         </div>
     </footer>
