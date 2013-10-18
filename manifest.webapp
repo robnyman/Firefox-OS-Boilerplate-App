@@ -1,51 +1,48 @@
 {
-  "name": "Firefox OS Boilerplate App", 
-  "default_locale": "en", 
-  "icons": {
-    "128": "/images/logo128.png", 
-    "32": "/images/logo32.png", 
-    "64": "/images/logo64.png", 
-    "48": "/images/logo48.png", 
-    "16": "/images/logo16.png"
-  }, 
-  "installs_allowed_from": [
-    "*"
-  ], 
-  "description": "Boilerplate Firefox OS app with example use cases to get started", 
-  "version": "1", 
-  "launch_path": "index.html", 
-  "permissions": {
-    "geolocation": {
-      "description": "Marking out user location"
-    }, 
-    "desktop-notification": {
-      "description": "To show notifications"
+    "version": "1",
+    "name": "Firefox OS Boilerplate App",
+    "launch_path": "index.html",
+    "description": "Boilerplate Firefox OS app with example use cases to get started",
+    "icons": {
+        "16": "/images/logo16.png",
+        "32": "/images/logo32.png",
+        "48": "/images/logo48.png",
+        "64": "/images/logo64.png",
+        "128": "/images/logo128.png"
+    },
+    "developer": {
+        "name": "Robert Nyman",
+        "url": "http://robertnyman.com"
+    },
+    "installs_allowed_from": ["*"],
+    "default_locale": "en",
+    "permissions": {
+        "desktop-notification": {
+            "description" : "To show notifications"
+        },
+        "geolocation": {
+            "description" : "Marking out user location"
+        }
+    },
+    "locales": {
+        "en": {
+            "name": "Firefox OS Boilerplate App",
+            "description": "Boilerplate Firefox OS app with example use cases to get started"
+        }, 
+        "pt_BR": {
+            "name": "Firefox OS Boilerplate App", 
+            "description": "Boilerplate Firefox OS app com exemplos de uso para come\u00e7ar"
+        }, 
+        "en-US": {
+            "name": "Firefox OS Boilerplate App", 
+            "description": "Boilerplate Firefox OS app with example use cases to get started"
+        }, 
+        "de": {
+            "name": "Firefox OS Boilerplate App", 
+            "description": "Boilerplate Firefox OS App mit Beispiel Anwendungsf\u00e4lle, um loszulegen"
+        }, 
+        "hi": {
+          "name": "\u092b\u093e\u092f\u0930 \u092b\u0949\u0915\u094d\u0938 OS BoilerPlate App"
+        }
     }
-  }, 
-  "locales": {
-    "ru": {}, 
-    "en": {
-      "description": "Boilerplate Firefox OS app with example use cases to get started"
-    }, 
-    "pt_BR": {
-      "name": "Firefox OS Boilerplate App", 
-      "description": "Boilerplate Firefox OS app com exemplos de uso para come\u00e7ar"
-    }, 
-    "en-US": {
-      "name": "Firefox OS Boilerplate App", 
-      "description": "Boilerplate Firefox OS app with example use cases to get started"
-    }, 
-    "de": {
-      "name": "Firefox OS Boilerplate App", 
-      "description": "Boilerplate Firefox OS App mit Beispiel Anwendungsf\u00e4lle, um loszulegen"
-    }, 
-    "hi": {
-      "name": "\u092b\u093e\u092f\u0930 \u092b\u0949\u0915\u094d\u0938 OS BoilerPlate App", 
-      "description": "\u092c\u0949\u092f\u0932\u0930\u092a\u094d\u0932\u0947\u091f \u092b\u093e\u092f\u0930\u092b\u0949\u0915\u094d\u0938 OS \u090f\u092a\u094d\u092a \u0909\u0926\u0939\u093e\u0930\u0923 \u0915\u0947 \u0938\u093e\u0925\u0964 \u0936\u0941\u0930\u0942 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f cases \u0915\u093e \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0915\u0930\u0947\u0902"
-    }
-  }, 
-  "developer": {
-    "url": "http://robertnyman.com", 
-    "name": "Robert Nyman"
-  }
 }
