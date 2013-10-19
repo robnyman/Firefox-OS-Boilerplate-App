@@ -1,5 +1,5 @@
 {
-    "version": "1",
+    "version": "1.0.1",
     "name": "Firefox OS Boilerplate App",
     "launch_path": "index.html",
     "description": "Boilerplate Firefox OS app with example use cases to get started",
@@ -16,12 +16,16 @@
     },
     "installs_allowed_from": ["*"],
     "default_locale": "en",
+	"type": "privileged",
     "permissions": {
         "desktop-notification": {
             "description" : "To show notifications"
         },
         "geolocation": {
             "description" : "Marking out user location"
+        },
+		"systemXHR":{
+            "description" : "Allows anonymous cross-origin XHR without the target site having CORS enabled."
         }
     },
     "locales": {
