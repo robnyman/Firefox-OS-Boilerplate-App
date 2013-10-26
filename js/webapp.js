@@ -477,7 +477,7 @@
             getContacts.onsuccess = function () {
                 var result = getContacts.result;
                 if (result) {
-                    getAllContactsDisplay.innerHTML += result.givenName + " " + result.familyName;
+                    getAllContactsDisplay.innerHTML += result.givenName + " " + result.familyName + "<br>";
                     getContacts.continue();
                 }
             };
