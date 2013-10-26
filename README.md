@@ -37,7 +37,11 @@ And:
         "device-storage:pictures": {
             "access": "readcreate"
         },
-        "systemXHR":{}
+        "systemXHR":{},
+        "contacts": {
+            "description" : "Reading out contacts",
+            "access": "readcreate"
+        }
     }
 
 

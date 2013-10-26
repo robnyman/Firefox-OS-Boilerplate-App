@@ -103,6 +103,13 @@ header.show-install h1 {
     margin-bottom: 10px;
 }
 
+#cross-domain-xhr-display,
+#device-storage-pictures-display,
+#get-all-contacts-display {
+    display: none;
+    margin-bottom: 10px;   
+}
+
 #main button {
     display: inline-block;
     width: 49%;

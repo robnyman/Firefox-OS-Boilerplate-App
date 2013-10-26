@@ -221,11 +221,21 @@
     var addNotification = document.querySelector("#add-notification");
     if (addNotification) {
         addNotification.onclick = function () {
-            var notification = navigator.mozNotification.createNotification(
-                "See this",
-                "This is a notification"
-            );
- notification.show();
+            var appRef = navigator.mozApps.getSelf(),
+                icon;
+            appRef.onsuccess = function (evt) {
+                icon = appRef.result.manifest.icons["16"];
+                console.log("I am: " + icon);
+                var notification = navigator.mozNotification.createNotification(
+                    "See this",
+                    icon,
+                    icon
+                );
+                notification.show();
+                var img = document.createElement("img");
+                img.src = icon;
+                document.body.appendChild(img);
+            };
         };
     }
 
@@ -433,7 +443,7 @@
 
             deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4>";
  
-  cursor.onsuccess = function() { 
+            cursor.onsuccess = function () { 
                 if (!cursor.result)  {
                     deviceStoragePicturesDisplay.innerHTML = "No files";
                 }
@@ -446,12 +456,34 @@
                 deviceStoragePicturesDisplay.innerHTML += filePresentation;
 
                 deviceStoragePicturesDisplay.style.display = "block";
- };
+            };
 
-  cursor.onerror = function () {
+              cursor.onerror = function () {
                 console.log("Error");
                 deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p>";
                 deviceStoragePicturesDisplay.style.display = "block";
+            };
+        };
+    }
+
+    // List contacts
+    var getAllContacts = document.querySelector("#get-all-contacts"),
+        getAllContactsDisplay = document.querySelector("#get-all-contacts-display");
+    if (getAllContacts && getAllContactsDisplay) {
+        getAllContacts.onclick = function () {
+            var getContacts = window.navigator.mozContacts.getAll({});
+            getAllContactsDisplay.style.display = "block";
+
+            getContacts.onsuccess = function () {
+                var result = getContacts.result;
+                if (result) {
+                    getAllContactsDisplay.innerHTML += result.givenName + " " + result.familyName;
+                    getContacts.continue();
+                }
+            };
+
+            getContacts.onerror = function () {
+                getAllContactsDisplay.innerHTML += "Error";
             };
         };
     }
