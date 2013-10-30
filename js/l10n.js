@@ -1084,6 +1084,8 @@
         var nestedProp = k.substr(0, idx);
         if (gNestedProps.indexOf(nestedProp) > -1) {
           element[nestedProp][k.substr(idx + 1)] = data[k];
+        } else if (k === 'ariaLabel') {
+          element.setAttribute('aria-label', data[k]);
         } else {
           element[k] = data[k];
         }
@@ -1117,13 +1119,20 @@
 
   // localize an element as soon as mozL10n is ready
   function localizeElement(element, id, args) {
-    if (!element || !id) {
+    if (!element) {
+      return;
+    }
+
+    if (!id) {
+      element.removeAttribute('data-l10n-id');
+      element.removeAttribute('data-l10n-args');
+      setTextContent(element, '');
       return;
     }
 
     // set the data-l10n-[id|args] attributes
     element.setAttribute('data-l10n-id', id);
-    if (args) {
+    if (args && typeof args === 'object') {
       element.setAttribute('data-l10n-args', JSON.stringify(args));
     } else {
       element.removeAttribute('data-l10n-args');
