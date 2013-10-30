@@ -10,7 +10,7 @@
         "60": "/images/logo60.png",
         "64": "/images/logo64.png",
         "90": "/images/logo90.png",
-        "120": "/images/logo120.png"
+        "120": "/images/logo120.png",
         "128": "/images/logo128.png"
     },
     "developer": {
@@ -29,7 +29,23 @@
     },
     "locales": {
         "en": {
+            "name": "Firefox OS Boilerplate App",
             "description": "Boilerplate Firefox OS app with example use cases to get started"
+        }, 
+        "pt_BR": {
+            "name": "Firefox OS Boilerplate App", 
+            "description": "Boilerplate Firefox OS app com exemplos de uso para come\u00e7ar"
+        }, 
+        "en-US": {
+            "name": "Firefox OS Boilerplate App", 
+            "description": "Boilerplate Firefox OS app with example use cases to get started"
+        }, 
+        "de": {
+            "name": "Firefox OS Boilerplate App", 
+            "description": "Boilerplate Firefox OS App mit Beispiel Anwendungsf\u00e4lle, um loszulegen"
+        }, 
+        "hi": {
+          "name": "\u092b\u093e\u092f\u0930 \u092b\u0949\u0915\u094d\u0938 OS BoilerPlate App"
         }
     }
 }
