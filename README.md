@@ -10,7 +10,7 @@ It is a showcase of:
 * [WebAPI usage](https://hacks.mozilla.org/2013/02/using-webapis-to-make-the-web-layer-more-capable/)
 * Adding offline support and more in Firefox OS!
 
-To add your own icon, I recommend using the [Firefox OS app icons style guide](http://www.mozilla.org/en-US/styleguide/products/firefoxos/icons/).
+To add your own icon, I recommend using the [Firefox OS app icons style guide](http://www.mozilla.org/en-US/styleguide/products/firefox-os/icons/).
 
 
 ## Preview
@@ -37,7 +37,11 @@ And:
         "device-storage:pictures": {
             "access": "readcreate"
         },
-        "systemXHR":{}
+        "systemXHR":{},
+        "contacts": {
+            "description" : "Reading out contacts",
+            "access": "readcreate"
+        }
     }
 
 
