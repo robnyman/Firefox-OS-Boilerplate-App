@@ -1,7 +1,7 @@
 {
     "version": "1",
     "name": "Firefox OS Boilerplate App",
-    "launch_path": "index.html",
+    "launch_path": "/index.html",
     "description": "Boilerplate Firefox OS app with example use cases to get started",
     "icons": {
         "16": "/images/logo16.png",
