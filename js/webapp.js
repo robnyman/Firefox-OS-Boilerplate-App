@@ -221,21 +221,20 @@
     var addNotification = document.querySelector("#add-notification");
     if (addNotification) {
         addNotification.onclick = function () {
-            var appRef = navigator.mozApps.getSelf(),
-                icon;
-            appRef.onsuccess = function (evt) {
-                icon = appRef.result.manifest.icons["16"];
-                console.log("I am: " + icon);
+            if ("Notification" in window) {
+                // Firefox OS 1.1 and higher
+                new Notification("See this", {
+                    body : "This is a notification"
+                });    
+            }
+            else {
+                // Firefox OS 1.0
                 var notification = navigator.mozNotification.createNotification(
                     "See this",
-                    icon,
-                    icon
+                    "This is a notification"
                 );
                 notification.show();
-                var img = document.createElement("img");
-                img.src = icon;
-                document.body.appendChild(img);
-            };
+            }
         };
     }
 
