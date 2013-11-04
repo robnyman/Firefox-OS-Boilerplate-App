@@ -51,21 +51,21 @@ All options to test packaged apps are outlined in the [How to install packaged a
 
 # Localization (L10n)
 
-=Get a Transifex account= 
+## Get a Transifex account 
 
 Transifex is the platform that we use to manage the localization workflow.
 
 Sign up for a Transifex account and visit the [Firefox OS Boilerplate project](https://www.transifex.com/projects/p/firefox-os-boilerplate/).
 
-![](https://support.cdn.mozilla.net/media/uploads/gallery/images/2013-09-27-08-46-21-087973.png){https://www.transifex.com/signup/)
+![](https://support.cdn.mozilla.net/media/uploads/gallery/images/2013-09-27-08-46-21-087973.png)(https://www.transifex.com/signup/)
 
-=Find your language=
+## Find your language
 
 Click on the language that you want to localize and click the ![](https://support.cdn.mozilla.net/media/uploads/gallery/images/2013-09-27-08-57-01-bc2228.png) button
 
 If your language is not listed, click the ![](https://support.cdn.mozilla.net/media/uploads/gallery/images/2013-09-27-08-58-27-05ceb1.png) button.
 
-=Start translating!=
+## Start translating! 
 
 Select the project you want to translate and hit the ![](https://support.cdn.mozilla.net/media/uploads/gallery/images/2013-09-27-09-13-50-99ae4f.png) button. 
 
