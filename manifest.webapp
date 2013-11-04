@@ -20,7 +20,7 @@
   "installs_allowed_from": [
     "*"
   ],
-  "default_locale": "en",
+  "default_locale": "it_IT",
   "permissions": {
     "desktop-notification": {
       "description": "To show notifications"
@@ -48,6 +48,10 @@
     },
     "hi": {
       "name": "फायर फॉक्स OS BoilerPlate App"
+    },
+    "it_IT": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate per Firefox OS con esempi e casi d'uso"
     }
   }
 }
