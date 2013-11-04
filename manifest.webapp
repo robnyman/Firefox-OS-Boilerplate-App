@@ -20,7 +20,7 @@
   "installs_allowed_from": [
     "*"
   ],
-  "default_locale": "it_IT",
+  "default_locale": "en",
   "permissions": {
     "desktop-notification": {
       "description": "To show notifications"
