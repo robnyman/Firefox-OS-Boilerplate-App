@@ -55,9 +55,9 @@ All options to test packaged apps are outlined in the [How to install packaged a
 
 Transifex is the platform that we use to manage the localization workflow.
 
-Sign up for a Transifex account and visit the [Firefox OS Boilerplate project](https://www.transifex.com/projects/p/firefox-os-boilerplate/).
+[Sign up](https://www.transifex.com/signup/) for a Transifex account and visit the [Firefox OS Boilerplate project](https://www.transifex.com/projects/p/firefox-os-boilerplate/).
 
-![](https://support.cdn.mozilla.net/media/uploads/gallery/images/2013-09-27-08-46-21-087973.png)(https://www.transifex.com/signup/)
+![](https://support.cdn.mozilla.net/media/uploads/gallery/images/2013-09-27-08-46-21-087973.png)
 
 ## Find your language
 
