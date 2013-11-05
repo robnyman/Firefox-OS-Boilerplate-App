@@ -48,6 +48,10 @@
     },
     "hi": {
       "name": "फायर फॉक्स OS BoilerPlate App"
+    },
+    "it_IT": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate per Firefox OS con esempi e casi d'uso"
     }
   }
 }
