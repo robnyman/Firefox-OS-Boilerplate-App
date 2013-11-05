@@ -217,6 +217,26 @@
         }
     }
 
+    var openVideo = document.querySelector("#open-video");
+    if (openVideo) {
+        openVideo.onclick = function () {
+            var openingVideo = new MozActivity({
+                name: "open",
+                data: {
+                    type: [
+                      "video/webm",
+                      "video/mp4",
+                      "video/3gpp",
+                      "video/youtube"
+                    ],
+                    url: "http://v2v.cc/~j/theora_testsuite/320x240.ogg"
+                }
+            });
+        }
+    }
+
+
+
     // Notifications
     var addNotification = document.querySelector("#add-notification");
     if (addNotification) {
