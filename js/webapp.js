@@ -25,10 +25,12 @@
                 name: "pick",
                 data: {
                     type: ["image/png", "image/jpg", "image/jpeg"]
- }
+
+                }
             });
 
-            pick.onsuccess = function () { 
+            pick.onsuccess = function () {
+
                 var img = document.createElement("img");
                 img.src = window.URL.createObjectURL(this.result.blob);
                 var imagePresenter = document.querySelector("#image-presenter");
@@ -36,7 +38,8 @@
                 imagePresenter.style.display = "block";
             };
 
-            pick.onerror = function () { 
+            pick.onerror = function () {
+
                 alert("Can't view the image!");
             };
         }
@@ -49,7 +52,8 @@
                  name: "pick"
              });
 
-            pickAny.onsuccess = function () { 
+            pickAny.onsuccess = function () {
+
                 var img = document.createElement("img");
                 if (this.result.blob.type.indexOf("image") != -1) {
                     img.src = window.URL.createObjectURL(this.result.blob);
@@ -57,7 +61,8 @@
                 }
             };
 
-            pickAny.onerror = function () { 
+            pickAny.onerror = function () {
+
                 console.log("An error occurred");
             };
         }
@@ -70,7 +75,8 @@
                 name: "record" // Possibly capture in future versions
             });
 
-            rec.onsuccess = function () { 
+            rec.onsuccess = function () {
+
                 var img = document.createElement("img");
                 img.src = window.URL.createObjectURL(this.result.blob);
                 var imagePresenter = document.querySelector("#image-presenter");
@@ -78,7 +84,8 @@
                 imagePresenter.style.display = "block";
             };
 
-            rec.onerror = function () { 
+            rec.onerror = function () {
+
                 alert("No taken picture returned");
             };
         }
@@ -212,7 +219,8 @@
                     url: "http://robertnyman.com",
                     name: "Robert's talk",
                     icon: "http://robertnyman.com/favicon.png"
- }
+
+                }
             });
         }
     }
@@ -243,11 +251,22 @@
         addNotification.onclick = function () {
             if ("Notification" in window) {
                 // Firefox OS 1.1 and higher
-                new Notification("See this", {
-                    body : "This is a notification"
-                });    
-            }
-            else {
+		
+		if (Notification.permission !== 'denied') {
+		    Notification.requestPermission(function (permission) {
+			if(!('permission' in Notification)) {
+			    Notification.permission = permission;
+			}
+		    });
+		}
+		
+		if (Notification.permission === "granted") {
+		    var notification = new Notification("See this", {
+			body : "This is a notification"
+		    });    
+		}
+            } 
+	    else {
                 // Firefox OS 1.0
                 var notification = navigator.mozNotification.createNotification(
                     "See this",
@@ -269,7 +288,8 @@
                     "landscape-primary"
                     "landscape-secondary"
                     "portrait-primary"
-                    "portrait-secondary" 
+                    "portrait-secondary"
+
             */
             var portraitLock = screen.mozLockOrientation("portrait");
             if (portraitLock) {
@@ -282,13 +302,15 @@
     var vibrate = document.querySelector("#vibrate");
     if (vibrate) {
         vibrate.onclick = function () {
-            var vibrating = navigator.vibrate(2000);
+            var vibrating = navigator.vibrate(2000);
             /*
                 Possible values:
                     On/off pattern:
- navigator.vibrate([200, 100, 200, 100]);
+
+                    navigator.vibrate([200, 100, 200, 100]);
                     Turn off vibration
- navigator.vibrate(0);
+
+                    navigator.vibrate(0);
             */
         };
     }
@@ -301,7 +323,8 @@
         checkConnection.onclick = function () {
             var connection = window.navigator.mozConnection,
                 online = "<strong>Connected:</strong> " + (connection.bandwidth),
-                metered = "<strong>Metered:</strong> " + connection.metered; 
+                metered = "<strong>Metered:</strong> " + connection.metered;
+
 
             connectionDisplay.innerHTML = "<h4>Result from Check connection</h4>" + online + "<br>" + metered;
             connectionDisplay.style.display = "block";
@@ -458,17 +481,22 @@
     if (deviceStoragePictures && deviceStoragePicturesDisplay) {
         deviceStoragePictures.onclick = function () {
             var deviceStorage = navigator.getDeviceStorage("pictures"),
-                cursor = deviceStorage.enumerate(); 
+                cursor = deviceStorage.enumerate();
+
 
             deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4>";
- 
-            cursor.onsuccess = function () { 
-                if (!cursor.result)  {
+
+
+            cursor.onsuccess = function () {
+
+                if (!cursor.result)
+                {
                     deviceStoragePicturesDisplay.innerHTML = "No files";
                 }
 
                 var file = cursor.result,
-                    filePresentation; 
+                    filePresentation;
+
 
                 filePresentation = "<strong>" + file.name + ":</strong> " + parseInt(file.size / 1024, 10) + "kb<br>";
                 filePresentation += "<p><img src='" + window.URL.createObjectURL(file) + "' alt=''></p>";
@@ -477,7 +505,9 @@
                 deviceStoragePicturesDisplay.style.display = "block";
             };
 
-              cursor.onerror = function () {
+            
+
+            cursor.onerror = function () {
                 console.log("Error");
                 deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p>";
                 deviceStoragePicturesDisplay.style.display = "block";
