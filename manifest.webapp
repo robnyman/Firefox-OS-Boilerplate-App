@@ -52,6 +52,30 @@
     "it_IT": {
       "name": "Firefox OS Boilerplate App",
       "description": "Boilerplate per Firefox OS con esempi e casi d'uso"
+    },
+    "ar": {
+      "name": "التطبيق المساعد لبدء التطوير لـFirefox OS",
+      "description": "تطبيق يُساعدك على بدء التطوير لنظام Firefox مُرفق بأمثلة عن حالات الاستخدام"
+    },
+    "el": {
+      "name": "Firefox OS Boilerplate Εφαρμογή",
+      "description": "Boilerplate Firefox OS εφαρμογή με παραδείγματα χρήσης για να ξεκινήσετε"
+    },
+    "fr": {
+      "name": "Modèle d’application pour Firefox OS",
+      "description": "Modèle d’application pour Firefox OS avec des exemples de cas d’utilisation pour bien commencer"
+    },
+    "id": {
+      "name": "Firefox OS Boilerplate Aplikasi",
+      "description": "Aplikasi boilerplate Firefox OS dengan contoh kasus penggunaan untuk memulai"
+    },
+    "ja": {
+      "name": "Firefox OSボイラプレートアプリ",
+      "description": "いくつかの用例を含めた、Firefox OS用アプリの入門用見本"
+    },
+    "nl": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate Firefox OS app met voorbeeld use cases om te beginnen"
     }
   }
 }

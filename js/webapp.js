@@ -243,10 +243,20 @@
         addNotification.onclick = function () {
             if ("Notification" in window) {
                 // Firefox OS 1.1 and higher
-                new Notification("See this", {
-                    body : "This is a notification"
-                });    
-            }
+                if (Notification.permission !== 'denied') {
+                    Notification.requestPermission(function (permission) {
+                        if(!('permission' in Notification)) {
+                            Notification.permission = permission;
+                        }
+                    });
+                }
+
+                if (Notification.permission === "granted") {
+                    var notification = new Notification("See this", {
+                        body : "This is a notification"
+                    });    
+                }
+            } 
             else {
                 // Firefox OS 1.0
                 var notification = navigator.mozNotification.createNotification(
