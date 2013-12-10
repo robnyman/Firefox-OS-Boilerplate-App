@@ -516,4 +516,22 @@
             };
         };
     }
+
+    // Keep screen on
+    var lock = null;
+    var keepscreen = document.querySelector("#keep-screen-on");
+    if (keepscreen) {
+        keepscreen.onclick = function () {
+            if (!lock) {
+                lock = window.navigator.requestWakeLock('screen');
+                keepscreen.innerHTML = "Remove the lock";
+            }
+            else {
+                lock.unlock();
+                lock = null;
+                keepscreen.innerHTML = "Keep screen on";
+            }
+        };
+    }
+
 })();
