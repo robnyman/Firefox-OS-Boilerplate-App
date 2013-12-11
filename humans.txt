@@ -1,5 +1,5 @@
-Firefox OS Boilerplat App
---------------------------
+Firefox OS Boilerplate App
+---------------------------
   Author: Robert Nyman
   Site: http://robnyman.github.io/Firefox-OS-Boilerplate-App/
   Github: https://github.com/robnyman/Firefox-OS-Boilerplate-App
