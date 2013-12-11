@@ -1,0 +1,40 @@
+Firefox OS Boilerplate App
+---------------------------
+  Author: Robert Nyman
+  Site: http://robnyman.github.io/Firefox-OS-Boilerplate-App/
+  Github: https://github.com/robnyman/Firefox-OS-Boilerplate-App
+  Transifex: https://www.transifex.com/projects/p/firefox-os-boilerplate/
+
+Contributors on Github
+-----------------------
+  amirouche
+  christi3k
+  fharper
+  jor3l
+  mpous
+  Mte90
+  ossreleasefeed
+  potch
+  taboca
+  zalun
+  zenorocha
+
+Localizers on Transifex
+------------------------
+  ariestiyansyah
+  C7DB
+  cuneytoktay
+  dsecsuresh
+  FabioMagnoni
+  ffee_machine 
+  Imrizalp
+  Mte90 
+  Martin1982 
+  nclm
+  pj.pradeepjha
+  ThomasTursics 
+  ravmn
+  vahagnbn
+  yourfrienddhruv 
+
+Last updated: 10 December 2013
