@@ -36,7 +36,10 @@
                 imagePresenter.style.display = "block";
             };
 
-            pick.onerror = function () { 
+            pick.onerror = function (e) {
+                if (e.target.error && e.target.error.name === 'USER_ABORT')
+                    return;
+
                 alert("Can't view the image!");
             };
         }
