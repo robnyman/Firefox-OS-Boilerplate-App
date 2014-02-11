@@ -29,7 +29,7 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font: normal 10px "mozTT", sans-serif;
+  font-size:10px;
   background: #fff;
 }
 
