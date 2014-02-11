@@ -49,7 +49,7 @@ section[role="region"] > header:first-child input[type="text"] {
   border: solid 0.1rem #9d4123;
   border-top-color: #a6501e;
   border-radius: 0.3rem;
-  background: #fff url(headers/images/ui/shadow.png) repeat-x left -0.1rem;
+  background: #fff url(../images/headers/ui/shadow.png) repeat-x left -0.1rem;
   font-size: 1.5rem;
   line-height: 3em;
   box-shadow: none;
@@ -67,7 +67,7 @@ section[role="region"] > header:first-child form button[type="reset"] {
   margin: 0;
   display: none;
   border: none;
-  background: url(headers/images/icons/clear.png) no-repeat center center / 1.7rem auto;
+  background: url(../images/headers/icons/clear.png) no-repeat center center / 1.7rem auto;
 }
 
 section[role="region"] > header:first-child input[type="text"]:valid + button[type="reset"] {
@@ -161,43 +161,43 @@ section[role="region"] > header:first-child .icon {
 }
 
 section[role="region"] > header:first-child .icon.icon-add {
-  background-image: url(headers/images/icons/add.png);
+  background-image: url(../images/headers/icons/add.png);
 }
 
 section[role="region"] > header:first-child .icon.icon-compose {
-  background-image: url(headers/images/icons/compose.png);
+  background-image: url(../images/headers/icons/compose.png);
 }
 
 section[role="region"] > header:first-child .icon.icon-edit {
-  background-image: url(headers/images/icons/edit.png);
+  background-image: url(../images/headers/icons/edit.png);
 }
 
 section[role="region"] > header:first-child .icon.icon-send {
-  background-image: url(headers/images/icons/send.png);
+  background-image: url(../images/headers/icons/send.png);
 }
 
 section[role="region"] > header:first-child .icon.icon-close {
-  background-image: url(headers/images/icons/close.png);
+  background-image: url(../images/headers/icons/close.png);
 }
 
 section[role="region"] > header:first-child .icon.icon-back {
-  background-image: url(headers/images/icons/back.png);
+  background-image: url(../images/headers/icons/back.png);
 }
 
 section[role="region"] > header:first-child .icon.icon-menu {
-  background-image: url(headers/images/icons/menu.png);
+  background-image: url(../images/headers/icons/menu.png);
 }
 
 section[role="region"] > header:first-child .icon.icon-user {
-  background-image: url(headers/images/icons/user.png);
+  background-image: url(../images/headers/icons/user.png);
 }
 
 section[role="region"] > header:first-child .icon.icon-up {
-  background-image: url(headers/images/icons/up.png);
+  background-image: url(../images/headers/icons/up.png);
 }
 
 section[role="region"] > header:first-child .icon.icon-down {
-  background-image: url(headers/images/icons/down.png);
+  background-image: url(../images/headers/icons/down.png);
 }
 
 section[role="region"] > header:first-child .icon.icon-disabled {
@@ -210,7 +210,7 @@ section[role="region"] > header:first-child menu[type="toolbar"] a.msg-down-btn 
 }
 
 section[role="region"] > header:first-child .icon.icon-options {
-  background-image: url(headers/images/icons/options.png);
+  background-image: url(headers/icons/options.png);
 }
 
 /* Navigation links (back, cancel, etc) */
@@ -278,11 +278,11 @@ section[role="region"].skin-dark > header:first-child,
 /* Navigation links (back, cancel, etc) */
 /* the `organic' blue arrows work fine with the dark theme, let's reuse them */
 section[role="region"].skin-dark > header:first-child .icon.icon-back {
-  background-image: url(headers/images/icons/organic/back.png);
+  background-image: url(../images/headers/icons/organic/back.png);
 }
 
 section[role="region"].skin-dark > header:first-child .icon.icon-close {
-  background-image: url(headers/images/icons/organic/close.png);
+  background-image: url(../images/headers/icons/organic/close.png);
 }
 
 
@@ -324,22 +324,22 @@ section[role="region"].skin-organic > header:first-child h1,
 
 section[role="region"].skin-organic > header:first-child .icon.icon-back,
 .skin-organic section[role="region"] > header:first-child .icon.icon-back {
-  background-image: url(headers/images/icons/organic/back.png);
+  background-image: url(../images/headers/icons/organic/back.png);
 }
 
 section[role="region"].skin-organic > header:first-child .icon.icon-close,
 .skin-organic section[role="region"] > header:first-child .icon.icon-close {
-  background-image: url(headers/images/icons/organic/close.png);
+  background-image: url(../images/headers/icons/organic/close.png);
 }
 
 section[role="region"].skin-organic > header:first-child .icon.icon-add,
 .skin-organic section[role="region"] > header:first-child .icon.icon-add {
-  background-image: url(headers/images/icons/organic/add.png);
+  background-image: url(../images/headers/icons/organic/add.png);
 }
 
 section[role="region"].skin-organic > header:first-child .icon.icon-edit,
 .skin-organic section[role="region"] > header:first-child .icon.icon-edit {
-  background-image: url(headers/images/icons/organic/edit.png);
+  background-image: url(../images/headers/icons/organic/edit.png);
 }
 
 section[role="region"].skin-organic > header:first-child > a:not([aria-disabled="true"]):active:after,
@@ -390,7 +390,7 @@ html[dir="rtl"] section[role="region"] > header:first-child form {
   margin-left:0;
 }
 html[dir="rtl"] section[role="region"] > header:first-child input[type="text"] {
-  background: #fff url(headers/images/ui/shadow.png) repeat-x right -0.1rem;
+  background: #fff url(headers/ui/shadow.png) repeat-x right -0.1rem;
 }
 
 html[dir="rtl"] section[role="region"] > header:first-child form button[type="reset"] {
@@ -414,11 +414,11 @@ html[dir="rtl"] section[role="region"] > header:first-child > a:after {
   right: 0;
 }
 html[dir="rtl"] section[role="region"] > header:first-child .icon.icon-back {
-  background-image: url(headers/images/icons/back_rtl.png);
+  background-image: url(../images/headers/icons/back_rtl.png);
 }
 html[dir="rtl"] section[role="region"].skin-organic > header:first-child .icon.icon-back,
 html[dir="rtl"] .skin-organic section[role="region"] > header:first-child .icon.icon-back,
 html[dir="rtl"] section[role="region"].skin-dark > header:first-child .icon.icon-back {
-  background-image: url(headers/images/icons/organic/back_rtl.png);
+  background-image: url(../images/headers/icons/organic/back_rtl.png);
 }
 
