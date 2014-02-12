@@ -24,8 +24,12 @@
             var pick = new MozActivity({
                 name: "pick",
                 data: {
-                    type: ["image/png", "image/jpg", "image/jpeg"]
- }
+                    type: ["image/png", "image/jpg", "image/jpeg"],
+                    // In FxOS 1.3 and before the user is allowed to crop the
+                    // image by default, but this can cause out-of-memory issues
+                    // so we explicitly disable it.
+                    nocrop: true // don't allow the user to crop the image
+                }
             });
 
             pick.onsuccess = function () { 
