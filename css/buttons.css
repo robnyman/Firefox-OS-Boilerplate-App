@@ -2,14 +2,17 @@
  * Buttons
  * ---------------------------------- */
 
+.button::-moz-focus-inner,
 a[role="button"]::-moz-focus-inner,
 button::-moz-focus-inner {
   border: none;
   outline: none;
+  margin-top: -0.2rem; /* To fix line-height bug (697451) */
 }
 
 button,
-a[role="button"] {
+a[role="button"],
+.button {
   width: 100%;
   height: 3.8rem;
   margin: 0 0 1rem;
@@ -20,10 +23,12 @@ a[role="button"] {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  background: #fafafa url(../images/buttons/ui/default.png) repeat-x left bottom;
-  border: 0.1rem solid #9f9f9f;
-  border-radius: 0.3rem;
-  font: 400 1.6rem/3.8rem 'MozTT', Sans-serif;
+  background: #fafafa url(../images/buttons/ui/default.png) repeat-x left bottom / auto 100%;
+  border: 0.1rem solid #a6a6a6;
+  border-radius: 0.2rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 3.8rem;
   color: #333;
   text-align: center;
   text-shadow: 0.1rem 0.1rem 0 rgba(255,255,255,0.3);
@@ -38,6 +43,7 @@ button.recommend:active,
 a.recommend[role="button"]:active  {
   border-color: #008aaa;
   background: #008aaa;
+  background-size: auto 100%;
   color: #333;
 }
 
@@ -46,22 +52,24 @@ button.recommend,
 a[role="button"].recommend {
   background-image: url(../images/buttons/ui/recommend.png);
   background-color: #00caf2;
-  border-color: #00acce;
+  border-color: #008eab;
 }
 
 /* Danger */
 button.danger,
-a.danger[role="button"] {
+a.danger[role="button"],
+span.danger[role="button"] {
   background-image: url(../images/buttons/ui/danger.png);
   background-color: #b70404;
   color: #fff;
-  text-shadow: -0.1rem -0.1rem 0 #830b0b;
-  border: none;
+  text-shadow: none;
+  border-color: #820000;
 }
 
 /* Danger Press */
 button.danger:active,
-a[role="button"].danger:active {
+a[role="button"].danger:active,
+.button.danger:active {
   background-image: url(../images/buttons/ui/danger-press.png);
   background-color: #890707;
 }
@@ -69,20 +77,35 @@ a[role="button"].danger:active {
 /* Disabled (default & recommend) */
 button[disabled],
 a[role="button"][aria-disabled="true"],
+.button[aria-disabled="true"],
 button[disabled].recommend,
-a[role="button"][aria-disabled="true"].recommend {
-  background-image: url(../images/buttons/ui/disabled.png);
-  background-color: transparent;
-  border-color: #dadada;
-  color: #bcbcbc;
+a[role="button"][aria-disabled="true"].recommend,
+.button[aria-disabled="true"].recommend {
+  background: #e7e7e7;
+  border-color: #c7c7c7;
+  color: #c7c7c7;
+  text-shadow: none;
   pointer-events: none;
 }
 
 /* Danger disabled */
 button[disabled].danger,
+.button[aria-disabled="true"].danger,
 a[role="button"][aria-disabled="true"].danger {
-  background-image: url(../images/buttons/ui/danger-disabled.png);
-  color: #fff;
+  background: #c68484;
+  border-color: #a56464;
+  color: #a56464;
+  text-shadow: none;
+  pointer-events: none;
+}
+
+/* Disabled with dark background */
+.dark button[disabled],
+.dark .button[aria-disabled="true"],
+.dark a[role="button"][aria-disabled="true"] {
+  background: #5f5f5f;
+  color: #4d4d4d;
+  border-color: #4d4d4d;
   text-shadow: none;
   pointer-events: none;
 }
@@ -93,12 +116,11 @@ a[role="button"][aria-disabled="true"].danger {
  * ---------------------------------- */
 
 li button,
-li a[role="button"] {
+li a[role="button"],
+li .button {
   position: relative;
   background: #e7e7e7;
-  border-color: #b6b6b6;
   text-align: left;
-  font-weight: normal;
   /* For hacking box-shadows we need overflow:visible; so we lose text-overflows...*/
   white-space: normal;
   overflow: visible;
@@ -106,46 +128,41 @@ li a[role="button"] {
 
 /* Hacking box-shadow */
 li button:after,
-li a[role="button"]:after {
+li a[role="button"]:after,
+li .button:after {
   content: "";
   position: absolute;
-  bottom: -0.3rem;
+  top: 100%;
   left: 0;
   right: 0;
   height: 0.2rem;
-  background: url( ../images/buttons/ui/shadow.png) repeat-x left bottom;
+  background: url(../images/buttons/ui/shadow.png) repeat-x left bottom / auto 100%;
 }
 
 /* Press */
 li a[role="button"]:active:after,
+li .button:active:after,
 li button:active:after {
   opacity: 0;
 }
 
 /* Disabled */
-li button[disabled],
-li a[role="button"][aria-disabled="true"] {
-  background: #ededed;
-  border-color: #d3d3d3;
-  color: #a6a6a6;
-  pointer-events: none;
-}
-
-li button[disabled].icon:before,
-li a[role="button"][aria-disabled="true"].icon:before,
 li button[disabled]:after,
-li a[role="button"][aria-disabled="true"]:after {
-  opacity: 0.3;
+li a[role="button"][aria-disabled="true"]:after,
+li .button[aria-disabled="true"]:after {
+  background: none;
 }
 
 /* Icons */
 li button.icon,
-li a[role="button"].icon {
+li a[role="button"].icon,
+li .button.icon {
   padding-right: 3rem;
 }
 
 li button.icon:before,
-li a[role="button"].icon:before {
+li a[role="button"].icon:before,
+li .button.icon:before {
   content: "";
   width: 3rem;
   height: 3rem;
@@ -159,12 +176,43 @@ li a[role="button"].icon:before {
 
 li button.icon-view:before,
 li a[role="button"].icon-view:before {
-  background-image: url(../images/buttons/icons/view.png);
+  background: url(../images/buttons/icons/view.png) no-repeat 1.6rem 0 / 1rem 9rem;
+}
+
+li button.icon-view:active:before,
+li a[role="button"].icon-view:active:before {
+  background-position: 1.6rem -3rem;
+}
+
+li button.icon-view:disabled:before,
+li a[role="button"][aria-disabled="true"].icon-view:before {
+  background-position: 1.6rem -6rem;
+}
+
+li button.icon-dialog,
+li a[role="button"].icon-dialog,
+li .button.icon-dialog {
+  font-size: 1.7rem;
 }
 
 li button.icon-dialog:before,
-li a[role="button"].icon-dialog:before {
-  background-image: url(../images/buttons/icons/dialog.png);
+li a[role="button"].icon-dialog:before,
+li .button.icon-dialog:before {
+  background: url(../images/buttons/icons/dialog.png) no-repeat 1.6rem 0 / 1rem 9rem;
+  top: 100%;
+  margin-top: -2.4rem;
+}
+
+li button.icon-dialog:active:before,
+li a[role="button"].icon-dialog:active:before,
+li .button.icon-dialog:active:before {
+  background-position: 1.6rem -3rem;
+}
+
+li button.icon-dialog:disabled:before,
+li a[role="button"][aria-disabled="true"].icon-dialog:before,
+li .button[aria-disabled="true"].icon-dialog:before {
+  background-position: 1.6rem -6rem;
 }
 
 
@@ -174,21 +222,82 @@ li a[role="button"].icon-dialog:before {
 
 ul.compact,
 ol.compact {
-  margin-bottom: 1rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
-.compact > li button,
-.compact > li a[role="button"] {
-  margin: -0.1rem 0;
-  border-radius: 0;
+ul.compact li,
+ol.compact li {
+  padding: 1.5rem 0 0.5rem 0;
+  border-bottom: solid #bdbdbd 0.1rem;
+  display: block;
+  overflow: hidden;
 }
 
-.compact > li:first-child button,
-.compact > li:first-child a[role="button"] {
-  border-radius: 0.3rem 0.3rem 0 0;
+ul.compact li label,
+ol.compact li label {
+  padding: 0 1.5rem 1rem 1.5rem;
+  color: #333;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.compact > li:last-child button,
-.compact > li:last-child a[role="button"] {
-  border-radius: 0 0 0.3rem 0.3rem;
+/* Inputs inside of .button */
+.button input,
+body[role="application"] .button input {
+  border: 0;
+  background: none;
 }
+
+/* Hides dropdown arrow until bug #649849 is fixed */
+.button.icon select {
+   width: 130%;
+}
+
+/******************************************************************************
+ * Right-To-Left layout
+ */
+
+html[dir="rtl"] li button,
+html[dir="rtl"] li a[role="button"],
+html[dir="rtl"] li .button {
+  text-align: right;
+}
+
+html[dir="rtl"] li button:after,
+html[dir="rtl"] li a[role="button"]:after,
+html[dir="rtl"] li .button:after {
+  background-position: right bottom;
+}
+
+html[dir="rtl"] li button.icon,
+html[dir="rtl"] li a[role="button"].icon,
+html[dir="rtl"] li .button.icon {
+  padding-left: 3rem;
+  padding-right: 1rem;
+}
+
+html[dir="rtl"] li button.icon:before,
+html[dir="rtl"] li a[role="button"].icon:before,
+html[dir="rtl"] li .button.icon:before {
+  left: -1rem;
+  right: inherit;
+}
+
+html[dir="rtl"] li button.icon-view:before,
+html[dir="rtl"] li a[role="button"].icon-view:before {
+  background-image: url(../images/buttons/icons/view_rtl.png);
+  background-position: 1.6rem 0;
+}
+
+html[dir="rtl"] li button.icon-dialog:before,
+html[dir="rtl"] li a[role="button"].icon-dialog:before,
+html[dir="rtl"] li .button.icon-dialog:before {
+  background-image: url(../images/buttons/icons/dialog_rtl.png);
+  background-position: 1.6rem 0;
+}
+
