@@ -22,16 +22,24 @@ Contributors on Github
 Localizers on Transifex
 ------------------------
   ariestiyansyah
+  dbcomp
   C7DB
   cuneytoktay
+  davidbourguignon
+  Dominick
   dsecsuresh
   FabioMagnoni
   ffee_machine 
+  gorjuce
   Imrizalp
   Mte90 
   Martin1982 
   nclm
   pj.pradeepjha
+  sayak
+  sourav26721062 
+  stelistcristi
+  sweb
   ThomasTursics 
   ravmn
   vahagnbn
