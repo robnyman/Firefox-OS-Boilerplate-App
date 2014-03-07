@@ -1,3 +1,5 @@
+/* global confirm */
+"use strict";
 (function () {
     var appCache = window.applicationCache;
     if (appCache) {

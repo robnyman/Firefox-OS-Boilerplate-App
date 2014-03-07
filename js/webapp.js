@@ -1,3 +1,5 @@
+/* global MozActivity, alert, console, Notification */
+"use strict";
 (function () {
     /*
         WebActivities:
@@ -29,10 +31,10 @@
                     // image by default, but this can cause out-of-memory issues
                     // so we explicitly disable it.
                     nocrop: true // don't allow the user to crop the image
-                }
+                }
             });
 
-            pick.onsuccess = function () { 
+            pick.onsuccess = function () {
                 var img = document.createElement("img");
                 img.src = window.URL.createObjectURL(this.result.blob);
                 var imagePresenter = document.querySelector("#image-presenter");
@@ -40,10 +42,10 @@
                 imagePresenter.style.display = "block";
             };
 
-            pick.onerror = function () { 
-                alert("Can't view the image!");
+            pick.onerror = function () {
+                console.log("Can't view the image");
             };
-        }
+        };
     }
 
     var pickAnything = document.querySelector("#pick-anything");
@@ -53,18 +55,20 @@
                  name: "pick"
              });
 
-            pickAny.onsuccess = function () { 
+            pickAny.onsuccess = function () {
                 var img = document.createElement("img");
                 if (this.result.blob.type.indexOf("image") != -1) {
                     img.src = window.URL.createObjectURL(this.result.blob);
-                    document.querySelector("#image-presenter").appendChild(img);
+                    var imagePresenter = document.querySelector("#image-presenter");
+                    imagePresenter.appendChild(img);
+                    imagePresenter.style.display = "block";
                 }
             };
 
-            pickAny.onerror = function () { 
+            pickAny.onerror = function () {
                 console.log("An error occurred");
             };
-        }
+        };
     }
 
     var record = document.querySelector("#record");
@@ -74,7 +78,7 @@
                 name: "record" // Possibly capture in future versions
             });
 
-            rec.onsuccess = function () { 
+            rec.onsuccess = function () {
                 var img = document.createElement("img");
                 img.src = window.URL.createObjectURL(this.result.blob);
                 var imagePresenter = document.querySelector("#image-presenter");
@@ -82,41 +86,41 @@
                 imagePresenter.style.display = "block";
             };
 
-            rec.onerror = function () { 
+            rec.onerror = function () {
                 alert("No taken picture returned");
             };
-        }
+        };
     }
 
     var dial = document.querySelector("#dial");
     if (dial) {
         dial.onclick = function () {
-            var call = new MozActivity({
+            new MozActivity({
                 name: "dial",
                 data: {
                     number: "+46777888999"
                 }
             });
-        }
+        };
     }
 
     var sendSMS = document.querySelector("#send-sms");
     if (sendSMS) {
         sendSMS.onclick = function () {
-            var sms = new MozActivity({
+            new MozActivity({
                 name: "new", // Possible compose-sms in future versions
                 data: {
                     type: "websms/sms",
                     number: "+46777888999"
                 }
             });
-        }
+        };
     }
 
     var addContact = document.querySelector("#add-contact");
     if (addContact) {
         addContact.onclick = function () {
-            var newContact = new MozActivity({
+            new MozActivity({
                 name: "new", // Possibly add-contact in future versions
                 data: {
                     type: "webcontacts/contact",
@@ -131,13 +135,13 @@
                     }
                 }
             });
-        }
+        };
     }
 
     var share = document.querySelector("#share");
     if (share) {
         share.onclick = function () {
-            var sharing = new MozActivity({
+            new MozActivity({
                 name: "share",
                 data: {
                     //type: "url", // Possibly text/html in future versions,
@@ -145,7 +149,7 @@
                     url: "http://robertnyman.com"
                 }
             });
-        }
+        };
     }
 
     var shareImage = document.querySelector("#share-image"),
@@ -164,7 +168,7 @@
 
                 // Export to blob and share through a Web Activitiy
                 blobCanvas.toBlob(function (blob) {
-                    var sharingImage = new MozActivity({
+                    new MozActivity({
                         name: "share",
                         data: {
                             type: "image/*",
@@ -177,54 +181,54 @@
             else {
                 alert("Image failed to load, can't be shared");
             }
-        }
+        };
     }
 
     var viewURL = document.querySelector("#view-url");
     if (viewURL) {
         viewURL.onclick = function () {
-            var openURL = new MozActivity({
+            new MozActivity({
                 name: "view",
                 data: {
                     type: "url", // Possibly text/html in future versions
                     url: "http://robertnyman.com"
                 }
             });
-        }
+        };
     }
 
     var composeEmail = document.querySelector("#compose-email");
     if (composeEmail) {
         composeEmail.onclick = function () {
-            var createEmail = new MozActivity({
+            new MozActivity({
                 name: "new", // Possibly compose-mail in future versions
                 data: {
                     type : "mail",
                     url: "mailto:example@example.org"
                 }
             });
-        }
+        };
     }
 
     var saveBookmark = document.querySelector("#save-bookmark");
     if (saveBookmark) {
         saveBookmark.onclick = function () {
-            var savingBookmark = new MozActivity({
+            new MozActivity({
                 name: "save-bookmark",
                 data: {
                     type: "url",
                     url: "http://robertnyman.com",
                     name: "Robert's talk",
                     icon: "http://robertnyman.com/favicon.png"
- }
+                }
             });
-        }
+        };
     }
 
     var openVideo = document.querySelector("#open-video");
     if (openVideo) {
         openVideo.onclick = function () {
-            var openingVideo = new MozActivity({
+            new MozActivity({
                 name: "open",
                 data: {
                     type: [
@@ -236,7 +240,7 @@
                     url: "http://v2v.cc/~j/theora_testsuite/320x240.ogg"
                 }
             });
-        }
+        };
     }
 
 
@@ -247,27 +251,27 @@
         addNotification.onclick = function () {
             if ("Notification" in window) {
                 // Firefox OS 1.1 and higher
-                if (Notification.permission !== 'denied') {
+                if (Notification.permission !== "denied") {
                     Notification.requestPermission(function (permission) {
-                        if(!('permission' in Notification)) {
+                        if(!("permission" in Notification)) {
                             Notification.permission = permission;
                         }
                     });
                 }
 
                 if (Notification.permission === "granted") {
-                    var notification = new Notification("See this", {
+                    new Notification("See this", {
                         body : "This is a notification"
-                    });    
+                    });
                 }
-            } 
+            }
             else {
                 // Firefox OS 1.0
-                var notification = navigator.mozNotification.createNotification(
+                var notify = navigator.mozNotification.createNotification(
                     "See this",
                     "This is a notification"
                 );
-                notification.show();
+                notify.show();
             }
         };
     }
@@ -283,7 +287,7 @@
                     "landscape-primary"
                     "landscape-secondary"
                     "portrait-primary"
-                    "portrait-secondary" 
+                    "portrait-secondary"
             */
             var portraitLock = screen.mozLockOrientation("portrait");
             if (portraitLock) {
@@ -296,13 +300,14 @@
     var vibrate = document.querySelector("#vibrate");
     if (vibrate) {
         vibrate.onclick = function () {
-            var vibrating = navigator.vibrate(2000);
+            navigator.vibrate(2000);
             /*
                 Possible values:
-                    On/off pattern:
- navigator.vibrate([200, 100, 200, 100]);
-                    Turn off vibration
- navigator.vibrate(0);
+                On/off pattern:
+                navigator.vibrate([200, 100, 200, 100]);
+
+                Turn off vibration
+                navigator.vibrate(0);
             */
         };
     }
@@ -315,7 +320,7 @@
         checkConnection.onclick = function () {
             var connection = window.navigator.mozConnection,
                 online = "<strong>Connected:</strong> " + (connection.bandwidth),
-                metered = "<strong>Metered:</strong> " + connection.metered; 
+                metered = "<strong>Metered:</strong> " + connection.metered;
 
             connectionDisplay.innerHTML = "<h4>Result from Check connection</h4>" + online + "<br>" + metered;
             connectionDisplay.style.display = "block";
@@ -353,7 +358,7 @@
                 geolocationDisplay.innerHTML = "<strong>Latitude:</strong> " + position.coords.latitude + ", <strong>Longitude:</strong> " + position.coords.longitude;
                 geolocationDisplay.style.display = "block";
             },
-            function (position) {
+            function () {
                 geolocationDisplay.innerHTML = "Failed to get your current location";
                 geolocationDisplay.style.display = "block";
             });
@@ -405,23 +410,23 @@
     }
 
     // Device Orientation
-    var deviceOrientation = document.querySelector('#device-orientation'),
-        deviceOrientationDisplay = document.querySelector('#device-orientation-display');
+    var deviceOrientation = document.querySelector("#device-orientation"),
+        deviceOrientationDisplay = document.querySelector("#device-orientation-display");
 
     if (deviceOrientation && deviceOrientationDisplay) {
         deviceOrientation.onclick = function() {
             deviceOrientationDisplay.style.display = "block";
             window.ondeviceorientation = function (event) {
                 var orientedTo = (event.beta > 45 && event.beta < 135) ? "top" : (event.beta < -45 && event.beta > -135) ? "bottom" : (event.gamma > 45) ? "right" : (event.gamma < -45) ? "left" : "flat";
-                var orientation = "<strong>Absolute: </strong>" + event.absolute + "<br>"
-                                + "<strong>Alpha: </strong>" + event.alpha + "<br>"
-                                + "<strong>Beta: </strong>" + event.beta + "<br>"
-                                + "<strong>Gamma: </strong>" + event.gamma + "<br>"
-                                + "<strong>Device orientation: </strong>" + orientedTo;
+                var orientation = "<strong>Absolute: </strong>" + event.absolute + "<br>" +
+                                    "<strong>Alpha: </strong>" + event.alpha + "<br>" +
+                                    "<strong>Beta: </strong>" + event.beta + "<br>" +
+                                    "<strong>Gamma: </strong>" + event.gamma + "<br>" +
+                                    "<strong>Device orientation: </strong>" + orientedTo;
 
-                deviceOrientationDisplay.innerHTML = orientation
+                deviceOrientationDisplay.innerHTML = orientation;
             };
-        }
+        };
     }
 
     // Log visibility of the app
@@ -430,7 +435,7 @@
     if (logVisibility && logVisibilityDisplay) {
         logVisibility.onclick = function () {
             logVisibilityDisplay.style.display = "block";
-            logVisibilityDisplay.innerHTML = "I have focus!<br>"
+            logVisibilityDisplay.innerHTML = "I have focus!<br>";
             document.addEventListener("visibilitychange", function () {
                 if (document.hidden) {
                     console.log("Firefox OS Boilerplate App is hidden");
@@ -456,7 +461,7 @@
                     crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4>" + xhr.response;
                     crossDomainXHRDisplay.style.display = "block";
                 }
-            }
+            };
 
             xhr.onerror = function () {
                 crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4><p>Cross-domain XHR failed</p>";
@@ -472,18 +477,16 @@
     if (deviceStoragePictures && deviceStoragePicturesDisplay) {
         deviceStoragePictures.onclick = function () {
             var deviceStorage = navigator.getDeviceStorage("pictures"),
-                cursor = deviceStorage.enumerate(); 
-
+                cursor = deviceStorage.enumerate();
             deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4>";
- 
-            cursor.onsuccess = function () { 
-                if (!cursor.result)  {
+
+            cursor.onsuccess = function () {
+                if (!cursor.result) {
                     deviceStoragePicturesDisplay.innerHTML = "No files";
                 }
 
                 var file = cursor.result,
-                    filePresentation; 
-
+                    filePresentation;
                 filePresentation = "<strong>" + file.name + ":</strong> " + parseInt(file.size / 1024, 10) + "kb<br>";
                 filePresentation += "<p><img src='" + window.URL.createObjectURL(file) + "' alt=''></p>";
                 deviceStoragePicturesDisplay.innerHTML += filePresentation;
@@ -491,7 +494,7 @@
                 deviceStoragePicturesDisplay.style.display = "block";
             };
 
-              cursor.onerror = function () {
+            cursor.onerror = function () {
                 console.log("Error");
                 deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p>";
                 deviceStoragePicturesDisplay.style.display = "block";
@@ -527,7 +530,7 @@
     if (keepscreen) {
         keepscreen.onclick = function () {
             if (!lock) {
-                lock = window.navigator.requestWakeLock('screen');
+                lock = window.navigator.requestWakeLock("screen");
                 keepscreen.innerHTML = "Remove the lock";
             }
             else {

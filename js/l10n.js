@@ -1,5 +1,6 @@
 /* -*- Mode: js; js-indent-level: 2; indent-tabs-mode: nil -*- */
 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
+/* global console, unescape */
 
 'use strict';
 
@@ -72,13 +73,13 @@
     if (gDEBUG >= 2) {
       console.log('[l10n] ' + message);
     }
-  };
+  }
 
   function consoleWarn(message) {
     if (gDEBUG) {
       console.warn('[l10n] ' + message);
     }
-  };
+  }
 
   function consoleWarn_missingKeys(untranslatedElements, lang) {
     var len = untranslatedElements.length;

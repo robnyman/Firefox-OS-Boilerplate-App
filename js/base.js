@@ -1,3 +1,5 @@
+/* global alert, console */
+"use strict";
 // Install app
 if (navigator.mozApps) {
     var checkIfInstalled = navigator.mozApps.getSelf();
@@ -15,7 +17,7 @@ if (navigator.mozApps) {
             install.className = "show-install";
             install.onclick = function () {
                 var installApp = navigator.mozApps.install(manifestURL);
-                installApp.onsuccess = function(data) {
+                installApp.onsuccess = function() {
                     install.style.display = "none";
                 };
                 installApp.onerror = function() {
