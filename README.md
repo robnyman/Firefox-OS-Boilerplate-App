@@ -16,7 +16,7 @@ The Firefox OS Boilerplate App follow the latest Gaia style of Firefox 1.2, but 
 
 ## Preview
 
-To test/install this app, the recommended way is to download it or clone/fork this repository and run it in the [App Manager](https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager) (`Tools &gt; Web Developer &gt; App Manager` or go to the URL `about:app-manager` in Firefox) by clicking Add Packaged App and browse to where your local repository is.
+To test/install this app, the recommended way is to download it or clone/fork this repository and run it in the [App Manager](https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager) (`Tools > Web Developer > App Manager` or go to the URL `about:app-manager` in Firefox) by clicking Add Packaged App and browse to where your local repository is.
 
 Alternatively, you can test-run it from GitHub by installing it in the App Manager Dashboard - click Add Hosted App - by providing this URL:
 
