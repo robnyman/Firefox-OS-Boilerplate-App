@@ -2,7 +2,7 @@
 
 This is a demo app for Firefox OS, loosely based on [fxosstub](https://github.com/Jaxo/fxosstub), meant to act as a simple boilerplate for getting started with apps for Firefox OS.
 
-It will give you a button to install it in Firefox OS - on a device, in the [Firefox OS Simulator](https://addons.mozilla.org/en-US/firefox/addon/firefox-os-simulator/) ([Simulator Introduction](https://hacks.mozilla.org/2012/12/firefox-os-simulator-1-0-is-here/)) and in certain [Nightly versions of Firefox](http://nightly.mozilla.org/).
+It will give you a button to install it in Firefox OS - on a device, in the [App Manager](https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager) and in certain [Nightly versions of Firefox](http://nightly.mozilla.org/).
 
 It is a showcase of:
 
@@ -16,15 +16,15 @@ The Firefox OS Boilerplate App follow the latest Gaia style of Firefox 1.2, but 
 
 ## Preview
 
-To test/install this app, the recommended way is to download it or clone/fork this repository and run it in the [Firefox OS Simulator](https://addons.mozilla.org/en-US/firefox/addon/firefox-os-simulator/) by clicking Add Directory.
+To test/install this app, the recommended way is to download it or clone/fork this repository and run it in the [App Manager](https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager) (`Tools &gt; Web Developer &gt; App Manager` or go to the URL `about:app-manager` in Firefox) by clicking Add Packaged App and browse to where your local repository is.
 
-Alternatively, you can test-run it from GitHub by installing it in the Firefox OS Simulator Dashboard by providing this URL:
+Alternatively, you can test-run it from GitHub by installing it in the App Manager Dashboard - click Add Hosted App - by providing this URL:
 
-* [http://robnyman.github.io/Firefox-OS-Boilerplate-App/](http://robnyman.github.io/Firefox-OS-Boilerplate-App/)
+* [http://robnyman.github.io/Firefox-OS-Boilerplate-App/manifest-hosted.webapp](http://robnyman.github.io/Firefox-OS-Boilerplate-App/manifest-hosted.webapp)
 
 ## For Packaged Apps
 
-You can test packaged apps in version 2 and higher of the Firefox OS Simulator, by using the Add Directory button. If you want to access privileged APIs - such as deviceStorage, cross-domain XMLHttpRequest etc - you need to set type and permissions in the manifest file. E.g.
+You can test packaged apps in version 2 and higher of the App Manager, by using the Add Directory button. If you want to access privileged APIs - such as deviceStorage, cross-domain XMLHttpRequest etc - you need to set type and permissions in the manifest file. E.g.
 
     {
         "version": "1",
