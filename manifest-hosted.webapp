@@ -1,0 +1,133 @@
+{
+  "version": "1",
+  "name": "Firefox OS Boilerplate App",
+  "launch_path": "/Firefox-OS-Boilerplate-App/index.html",
+  "description": "Boilerplate Firefox OS app with example use cases to get started",
+  "icons": {
+    "16": "/images/logo16.png",
+    "32": "/images/logo32.png",
+    "48": "/images/logo48.png",
+    "60": "/images/logo60.png",
+    "64": "/images/logo64.png",
+    "90": "/images/logo90.png",
+    "120": "/images/logo120.png",
+    "128": "/images/logo128.png"
+  },
+  "developer": {
+    "name": "Robert Nyman",
+    "url": "http://robertnyman.com"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+    "desktop-notification": {
+      "description": "To show notifications"
+    },
+    "geolocation": {
+      "description": "Marking out user location"
+    }
+  },
+  "locales": {
+    "ar": {
+      "name": "التطبيق المساعد لبدء التطوير لـFirefox OS",
+      "description": "تطبيق يُساعدك على بدء التطوير لنظام Firefox مُرفق بأمثلة عن حالات الاستخدام"
+    },
+    "bn-IN": {
+      "name": "ফায়ারফক্স ওএস বয়েলারপ্লেট অ্যাপ",
+      "description": "শুরু করার জন্য ব্যবহারিক উদাহরণ সহ ফায়ারফক্স ওএস বয়েলারপ্লেট অ্যাপ"
+    },
+    "cs": {
+      "name": "Aplikace Firefox OS Boilerplate",
+      "description": "Aplikace Boilerplate Firefox OS s ukázkovými příklady použití, které vám umožní začít"
+    },
+    "de": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate Firefox OS App mit Beispiel Anwendungsfälle, um loszulegen"
+    },
+    "el": {
+      "name": "Firefox OS Boilerplate Εφαρμογή",
+      "description": "Boilerplate Firefox OS εφαρμογή με παραδείγματα χρήσης για να ξεκινήσετε"
+    },
+   "en": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate Firefox OS app with example use cases to get started"
+    },
+    "en-US": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate Firefox OS app with example use cases to get started"
+    },
+    "es": {
+      "name": "App base para Firefox OS",
+      "description": "App base para Firefox OS con ejemplos de usos para empezar"
+    },
+    "fa": {
+      "name": "برنامه ساز ابتدایی سیستم عامل فایرفاکس",
+      "description": "برنامه ساز ابتدایی سیستم عامل فایرفاکس با مثال کاربردی برای شروع به کار"
+    },
+    "fr": {
+      "name": "Modèle d’application pour Firefox OS",
+      "description": "Modèle d’application pour Firefox OS avec des exemples de cas d’utilisation pour bien commencer"
+    },
+    "he": {
+      "name": "אפליקציית Firefox OS Boilerplate",
+      "description": "אפליקציית Firefox OS Boilerplate עם דוגמאות שימוש להתחלה"
+    },
+    "hi": {
+      "name": "फायर फॉक्स OS BoilerPlate App"
+    },
+    "hu": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate Firefox OS app használati mintaesetekkel a kezdés megkönnyítéséért"
+    },
+    "id": {
+      "name": "Firefox OS Boilerplate Aplikasi",
+      "description": "Aplikasi boilerplate Firefox OS dengan contoh kasus penggunaan untuk memulai"
+    },
+    "it-IT": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate per FirefoxOS con esempi e casi d'uso per iniziare lo sviluppo"
+    },
+    "ja": {
+      "name": "Firefox OSボイラプレートアプリ",
+      "description": "いくつかの用例を含めた、Firefox OS用アプリの入門用見本"
+    },
+    "nl": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate Firefox OS app met voorbeeld use cases om te beginnen"
+    },
+    "pt_BR": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate Firefox OS app com exemplos de uso para começar"
+    },
+    "ro": {
+      "name": "Firefox OS Boilerplate App",
+      "description": "Boilerplate Firefox OS app cu exemple de utilizare pentru început"
+    },
+    "sk-SK": {
+      "name": "Firefox OS Boilerplate Aplikácia",
+      "description": "Boilerplate Firefox OS aplikácia s príkladmi použitia pre začiatok"
+    },
+    "sv": {
+      "name": "Firefox OS Boilerplate-appen",
+      "description": "Boilerplate Firefox OS-appen med exempel använder cases för att startas"
+    },
+    "ta": {
+      "name": "பையர்பாக்ஸ் ஓ.எஸ் பாயீலர்பிலேட்  ஆப்",
+      "description": "பாயீலர்பிலேட் பையர்பாக்ஸ் ஓ.எஸ் ஆப் உடன் யூஸ்கேஸ்சின் தொடக்கத்திற்காண எடுத்து காட்டு"
+    },
+    "tl": {
+      "name": "App ng  Firefox OS Boilerplate",
+      "description": "Boilerplate Firefox OS app na may halimbawa ay gumagamit ng mga kaso upang makapagsimula"
+    },
+    "tr": {
+      "name": "Firefox OS Boilerplate Uygulaması",
+      "description": "Başlamak için örnek kullanım durumları ile Boilerplate Firefox OS uygulaması"
+    },
+    "zh": {
+      "name": "Firefox OS 模板程序",
+      "description": "从Firefox OS模板应用内置的用户示例开始"
+    }
+  }
+}
