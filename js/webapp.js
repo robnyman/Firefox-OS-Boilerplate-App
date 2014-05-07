@@ -455,7 +455,7 @@
     if (crossDomainXHR && crossDomainXHRDisplay) {
         crossDomainXHR.onclick = function () {
             var xhr = new XMLHttpRequest({mozSystem: true});
-            xhr.open("GET", "http://robnyman.github.com/Firefox-OS-Boilerplate-App/README.md", true);
+            xhr.open("GET", "http://robnyman.github.io/Firefox-OS-Boilerplate-App/README.md", true);
             xhr.onreadystatechange = function () {
                 if (xhr.status === 200 && xhr.readyState === 4) {
                     crossDomainXHRDisplay.innerHTML = "<h4>Result from Cross-domain XHR</h4>" + xhr.response;
