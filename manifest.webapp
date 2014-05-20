@@ -27,6 +27,10 @@
     },
     "geolocation": {
       "description": "Marking out user location"
+    },
+    "device-storage:pictures": {
+        "description": "listing pictures",
+        "access": "readwrite"
     }
   },
   "locales": {
