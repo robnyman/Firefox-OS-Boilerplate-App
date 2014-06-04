@@ -276,6 +276,20 @@
         };
     }
 
+    // Notifications
+    var openSettings = document.querySelector("#open-settings");
+    if (openSettings) {
+        openSettings.onclick = function () {
+            new MozActivity({
+                name : "configure",
+                data : {
+                    target : "device"
+                }
+            });
+
+        };
+    }
+
     // Lock orientation
     var lockOrientation = document.querySelector("#lock-orientation");
     if (lockOrientation) {
