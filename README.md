@@ -1,5 +1,7 @@
 # Firefox OS Boilerplate App
 
+[http://tulio-albuquerque.github.io/Firefox-OS-Boilerplate-App/](http://tulio-albuquerque.github.io/Firefox-OS-Boilerplate-App/)
+
 This is a demo app for Firefox OS, loosely based on [fxosstub](https://github.com/Jaxo/fxosstub), meant to act as a simple boilerplate for getting started with apps for Firefox OS.
 
 It will give you a button to install it in Firefox OS - on a device, in the [App Manager](https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager) and in certain [Nightly versions of Firefox](http://nightly.mozilla.org/).
@@ -52,7 +54,7 @@ All options to test packaged apps are outlined in the [How to install packaged a
 
 ### Localization (L10n)
 
-#### Get a Transifex account 
+#### Get a Transifex account
 
 Transifex is the platform that we use to manage the localization workflow.
 
@@ -66,8 +68,8 @@ Click on the language that you want to localize and click the ![](https://suppor
 
 If your language is not listed, click the ![](https://support.cdn.mozilla.net/media/uploads/gallery/images/2013-09-27-08-58-27-05ceb1.png) button.
 
-#### Start translating! 
+#### Start translating!
 
-Select the project you want to translate and hit the ![](https://support.cdn.mozilla.net/media/uploads/gallery/images/2013-09-27-09-13-50-99ae4f.png) button. 
+Select the project you want to translate and hit the ![](https://support.cdn.mozilla.net/media/uploads/gallery/images/2013-09-27-09-13-50-99ae4f.png) button.
 
 When your translation is complete, we'll pull it into this repository.
