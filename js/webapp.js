@@ -535,8 +535,8 @@
     }
 
     // Keep screen on
-    var lock = null;
-    var keepscreen = document.querySelector("#keep-screen-on");
+    var lock = null,
+        keepscreen = document.querySelector("#keep-screen-on");
     if (keepscreen) {
         keepscreen.onclick = function () {
             if (!lock) {
@@ -551,4 +551,59 @@
         };
     }
 
+    // Alarm API
+    var alarmDate = new Date("Aug 31, 2014 15:20:00"),
+        addAlarm = document.querySelector("#add-alarm"),
+        alarmDisplay = document.querySelector("#alarm-display");
+    if (addAlarm) {
+        addAlarm.onclick = function () {
+            var alarm = navigator.mozAlarms.add(alarmDate, "honorTimezone", {
+                "optionalData" : "I am data"
+            });
+
+            alarm.onsuccess = function () {
+                alarmDisplay.innerHTML = "Alarm scheduled for " + alarmDate;
+            };
+
+            alarm.onerror = function () { 
+                alarmDisplay.innerHTML = "Failed to set the alarm<br>" + this.error.name;
+            };
+
+            var getAllAlarms = navigator.mozAlarms.getAll();
+            getAllAlarms.onsuccess = function () {
+                alarmDisplay.innerHTML += "<h4>All alarms</h4>";
+                this.result.forEach(function (alarm) {                    
+                    alarmDisplay.innerHTML += "<p><strong>Id:</strong> " + alarm.id + 
+                    ", <strong>date:</strong> " + alarm.date + 
+                    ", <strong>respectTimezone:</strong> " + alarm.respectTimezone + 
+                    ", <strong>data:</strong> " + JSON.stringify(alarm.data) + "</p>";
+                });
+            };
+
+            getAllAlarms.onerror = function () { 
+                alarmDisplay.innerHTML = "<p>Failed to get all alarms</p>" + this.error.name;
+            };
+        };
+    }
+
+    var removeAllAlarms = document.querySelector("#remove-all-alarms"),
+        removeAlarmsDisplay = document.querySelector("#remove-alarms-display");
+    if(removeAllAlarms) {
+        removeAllAlarms.onclick = function () {
+            var getAddedAlarms = navigator.mozAlarms.getAll();
+            getAddedAlarms.onsuccess = function () {
+                this.result.forEach(function (alarm) {
+                    navigator.mozAlarms.remove(alarm.id);
+                });
+                removeAlarmsDisplay.innerHTML = "All alarms removed";
+                if (alarmDisplay) {
+                    alarmDisplay.innerHTML = "";
+                }
+            };
+
+            getAddedAlarms.onerror = function () { 
+                removeAlarmsDisplay.innerHTML = "<p>Failed to remove all alarms</p>" + this.error.name;
+            };
+        };
+    }
 })();
