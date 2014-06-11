@@ -243,6 +243,16 @@
         };
     }
 
+    var openSettings = document.querySelector("#open-settings");
+    if (openSettings) {
+        openSettings.onclick = function () {
+            new MozActivity({
+                name: "configure",
+                target: "device"
+            });
+        };
+    }
+
 
 
     // Notifications
