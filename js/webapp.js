@@ -505,8 +505,9 @@
             };
 
             cursor.onerror = function () {
-                console.log("Error");
-                deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p>";
+                console.log(this.error);
+                deviceStoragePicturesDisplay.innerHTML = "<h4>Result from deviceStorage - pictures</h4><p>deviceStorage failed</p><p>" + 
+						(this.error.message || this.error.name || this.error.toString()) + "</p>";
                 deviceStoragePicturesDisplay.style.display = "block";
             };
         };
