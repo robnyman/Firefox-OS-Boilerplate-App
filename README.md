@@ -12,7 +12,10 @@ It is a showcase of:
 
 To add your own icon, I recommend using the [Firefox OS app icons style guide](http://www.mozilla.org/en-US/styleguide/products/firefox-os/icons/).
 
-The Firefox OS Boilerplate App follow the latest Gaia style of Firefox 1.2, but note that there is no obligation to add the same look, and feel to your application: Firefox OS applications are web applications, so no need to follow a UI guideline.
+The Firefox OS Boilerplate App apply the Gaia style of Firefox OS, but note that there is no obligation to add the same look, and feel to your application: Firefox OS applications are web applications, so no need to follow a UI guideline.
+
+For up-to-date information on building Open Web Apps, visit the [App Center on MDN](https://developer.mozilla.org/en-US/Apps).
+
 
 ## Preview
 
